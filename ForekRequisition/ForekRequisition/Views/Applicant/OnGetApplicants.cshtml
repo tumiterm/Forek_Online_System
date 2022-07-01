@@ -1,0 +1,167 @@
+﻿@model IEnumerable<ApprenticeApplications.Models.Applicant>
+
+@{
+    Layout = null;
+
+    ViewData["Title"] = "Apprentice";
+
+     Pager pager = new Pager();
+
+    int pageNo = 0;
+
+    if(ViewBag.Pager != null)
+    {
+        pager = ViewBag.Pager;
+        pageNo = pager.CurrentPage;
+    }
+}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" />
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap4.min.css" />
+<script src="https://use.fontawesome.com/65d1ed3b51.js"></script>
+
+<br />
+
+<div class="alert alert-dark mr-5 ml-5" role="alert">
+    <div class="btn-group">
+          <a asp-action="" class="btn btn-outline-danger"><i class="fa fa-close"> Close</i></a>
+           <a asp-action="Logout" asp-controller="Auth" class="btn btn-dark"><i class="fa fa-sign-out"> Logout</i></a>
+    </div>
+</div>
+<div class="card shadow mb-4">
+   <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">
+            List of All Registered Apprentice Applicants
+        </h6>
+  </div>
+
+  <div class="card-body">
+
+      <div class="table table-striped table-bordered" id="dataTable" width="100%" cellspacing="0">
+          <table class="table thead-dark table-sm applicants">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+          
+
+            <th>
+                Type
+            </th>
+
+             <th>
+                    Programme
+                </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.IDNumber)
+             </th>
+
+              <th>
+                @Html.DisplayNameFor(model => model.ReferenceNumber)
+             </th>
+
+                <th>
+               Date
+             </th>
+
+             <th>
+               Action
+             </th>
+         
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+           
+             <td>
+                @Html.DisplayFor(modelItem => item.ProgrammeType)
+            </td>
+              <td>
+                @Html.DisplayFor(modelItem => item.Trade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IDNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReferenceNumber)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedOn)
+            </td>
+            
+            <td>
+
+              @if (User.IsInRole("SystemAdministrator"))
+                 {
+                 <div class="btn-group">
+                 <li class="btn btn-dark btn-sm"><a href="@Url.Action("UpdateApplicantDetails", "Applicant", new { id =item.Id})"><i class="fa fa-pencil"></i> Modify</a></li>
+                 <li class="btn btn-outline-info btn-sm"><a href="@Url.Action("ModifyApplicantStatus", "ApplicantStatus", new { id =item.Id})"><i class="fa fa-pencil"></i> Status</a></li>
+                 <li class="btn btn-outline-success btn-sm"><a href="@Url.Action("ApplicantDetails", "Education", new { id =item.Id})"><i class="fa fa-user"></i> Details</a></li>
+                 <li class="btn btn-outline-success btn-sm"><a href="@Url.Action("ModifyUserData", "Education", new { id =item.Id})"><i class="fa fa-graduation-cap"></i> Edu</a></li>
+
+                </div>              
+                 }
+             
+
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap4.min.js"></script>
+
+  
+      </div>
+
+  </div>
+</div>
+
+
+<script>
+    $(document).ready(function(){
+
+        $('.applicants').DataTable({
+
+            initComplete: function(){
+
+                this.api().columns([2,3,4]).every(function (){
+
+                    var column = this;
+                    var select = $('<select><option value=""></option></select>')
+                    .appendTo($(column.header()).empty())
+                    .on('change', function () {
+                        var val = $.fn.dataTable.util.escapeRegex(
+                            $(this).val()
+                        );
+
+                        column.search(val ? '^' + val + '$' : '', true, false)
+                        .draw();
+                    });
+
+                    column.data().unique().sort().each(function (d,j){
+
+                        select.append('<option value="'+d+'">' + d + '</option>')
+                    });
+                });
+            }
+
+        });
+
+    });
+</script>
+

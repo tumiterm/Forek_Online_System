@@ -1,0 +1,536 @@
+﻿@using ApprenticeApplications.Models.Enums
+@model ApprenticeApplications.Models.Applicant
+
+<style>
+   .form-control
+    {
+     border-color: #000000;
+
+    }
+</style>
+
+<link href="~/css/dashboard.css" rel="stylesheet" />
+
+
+@{
+    ViewData["Title"] = "Apply";
+}
+
+
+
+<br />
+
+<br />
+<br />
+<div class="container apprenticeRegister">
+    <div class="row">
+        <section>
+
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+
+                <li role="presentation" class="nav-item">
+                    <a href="#step1" class="nav-link active" data-toggle="tab" aria-controls="step1" role="tab" title="Step 1">
+                        <i class="fa fa-user"></i>
+                        Biographical Details</a>
+                </li>
+
+                <li role="presentation" class="nav-item">
+                    <a href="#step2" class="nav-link" data-toggle="tab" aria-controls="step2" role="tab" title="Step 2">
+                        <i class="fa fa-phone"></i>
+                        Contact Information</a>
+                </li>
+                <li role="presentation" class="nav-item">
+                    <a href="#step3" class="nav-link" data-toggle="tab" aria-controls="step3" role="tab" title="Step 3">
+                        <i class="fa fa-home"></i>
+                        Address Information</a>
+                </li>
+
+                <li role="presentation" class="nav-item">
+                    <a href="#complete" class="nav-link" data-toggle="tab" aria-controls="complete" role="tab" title="Complete">
+                        <i class="fa fa-book"></i>
+                        Employment Details</a>
+                </li>
+            </ul>
+
+            <br />
+
+  <div id="accordion" class="appForm">
+    <div class="card">
+        <div class="card-header" id="headingOne" style="color:black">
+            <h5 class="mb-0">
+                <button class="btn btn-link" onclick="$('#collapsed-chevronSpouse').toggleClass('fa-rotate-180')" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    <i class="fa fa-chevron-circle-up" id="collapsed-chevronSpouse"></i>
+                    Apprentice Information
+                </button>
+            </h5>
+        </div>
+
+        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="card-body">
+
+             <form asp-action="ModifyApplicant" enctype="multipart/form-data">
+                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                   <input type="hidden" asp-for="Id" />
+
+                   <input type="hidden" asp-for="ReferenceNumber" class="form-control" />
+     
+
+                                  <div class="form-group col-md-4" hidden>
+                                  <label asp-for="IDNumber" class="control-label"></label>
+                                     <input asp-for="IDNumber" required class="form-control" />
+                                </div>
+
+                   <div class="tab-content">
+
+
+                      <div class="tab-pane active" role="tabpanel" id="step1">  
+                           <div class="alert alert-danger" role="alert">
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                             <label asp-for="Trade" class="control-label"></label>
+                                 <select asp-for="Trade" class="form-control" id="trade" asp-items="Html.GetEnumSelectList<eProgramme>()">
+                                    <option selected="selected" value="">Select Apprentice Programme</option>
+                                 </select>
+                                <span asp-validation-for="Trade" class="text-danger"></span>
+                            </div>
+                        
+                        <div class="form-group col-md-6">
+                             <label asp-for="ProgrammeType" class="control-label"></label>
+                                 <select asp-for="ProgrammeType" class="form-control" id="tradeProgramme" asp-items="Html.GetEnumSelectList<eProgrammeType>()">
+                                    <option selected="selected" value="">Select Programme Type</option>
+                                 </select>
+                                <span asp-validation-for="ProgrammeType" class="text-danger"></span>
+                            </div>
+                         </div>
+                        </div>
+                         <div class="form-row">
+                            <div class="form-group col-md-4">
+                             <label asp-for="Initials" class="control-label"></label>
+                                 <select asp-for="Initials" required class="form-control" id="title" asp-items="Html.GetEnumSelectList<eTitle>()">
+                                    <option selected="selected" value="">Select Title</option>
+                                 </select>
+                                <span asp-validation-for="Initials" class="text-danger"></span>
+                            </div>
+
+
+                                <div class="form-group col-md-4">
+                                  <label asp-for="Name" class="control-label"></label>
+                                     <input asp-for="Name" required class="form-control" id="name" />
+                                   <span asp-validation-for="Name" class="text-danger"></span>
+                                </div>
+
+
+                                 <div class="form-group col-md-4">
+                                  <label asp-for="LastName" class="control-label"></label>
+                                     <input asp-for="LastName" required class="form-control" id="lastname" />
+                                   <span asp-validation-for="LastName" class="text-danger"></span>
+                                </div>
+
+                              </div>
+
+                  <div class="form-row">
+
+                       <div class="form-group col-md-4">
+                                  <label asp-for="IDNumber" class="control-label"></label>
+                                     <input disabled asp-for="IDNumber" type="number" class="form-control" id="IDNumber" />
+                                   <span asp-validation-for="IDNumber" class="text-danger"></span>
+                                </div>
+
+                      <div class="form-group col-md-4">
+                     <label asp-for="Gender" class="control-label"></label>
+                         <select asp-for="Gender" required class="form-control" asp-items="Html.GetEnumSelectList<eGender>()" id="gender">
+                            <option selected="selected" value="">Select Gender</option>
+                         </select>
+                        <span asp-validation-for="Gender" class="text-danger"></span>
+                    </div>
+
+                        <div class="form-group col-md-4">
+                     <label asp-for="Race" class="control-label"></label>
+                         <select asp-for="Race" class="form-control" asp-items="Html.GetEnumSelectList<eRace>()">
+                            <option selected="selected" value="">Select Race</option>
+                         </select>
+                        <span asp-validation-for="Race" class="text-danger"></span>
+                    </div>
+                  </div>
+
+                  <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" id="chkDisability" value="option1">
+                      <label class="form-check-label" for="chkDisability">Has Disability</label>
+                  </div>
+
+           
+                  <br />
+                  <div class="form-row">
+                    <div class="form-group col-md-6" id="dis">
+                     <label asp-for="Disability" class="control-label"></label>
+                        <input asp-for="Disability" class="form-control placeholder="State Disability" />
+                        <span asp-validation-for="Disability" class="text-danger"></span>
+                    </div>
+
+
+                      <div class="form-group col-md-6" id="dis2">
+                     <label asp-for="DisabilityAtt" class="control-label"></label>
+                        <input asp-for="DisabilityAtt" class="form-control" multiple />
+                        <span asp-validation-for="DisabilityAtt" class="text-danger"></span>
+                    </div>
+                  </div>
+                  
+                  <div class="alert alert-secondary mt-1" role="alert">
+                   <div class="btn-group">
+                   <button type="reset" class="btn btn-warning"><i class="fa fa-undo"></i> Reset</button>
+                  <button type="button" class="btn btn-outline-info next-step" id="n-btn1"><i class="fa fa-arrow-right"></i> Next</button>
+                  </div>
+                  </div>
+                  </div>
+                   <div class="tab-pane" role="tabpanel" id="step2">
+      
+
+                   <div class="form-row">
+                        <div class="form-group col-md-4">
+                     <label asp-for="Cellphone" class="control-label"></label>
+                        <input asp-for="Cellphone" type="number" class="form-control"/>
+                          <span asp-validation-for="Cellphone" class="text-danger"></span>
+                     </div>
+
+                       <div class="form-group col-md-4">
+                     <label asp-for="HomeTel" class="control-label"></label>
+                        <input asp-for="HomeTel" type="number" class="form-control"/>
+                          <span asp-validation-for="HomeTel" class="text-danger"></span>
+                     </div>
+
+                       <div class="form-group col-md-4">
+                      <label asp-for="Email" class="control-label"></label>
+                         <input asp-for="Email" class="form-control" />
+                       <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+
+                  
+
+                     <div class="form-group col-md-4">
+                      <label asp-for="AlternativeContacPers" class="control-label"></label>
+                         <input asp-for="AlternativeContacPers" class="form-control" />
+                       <span asp-validation-for="AlternativeContacPers" class="text-danger"></span>
+                    </div>
+
+                     <div class="form-group col-md-4">
+                      <label asp-for="AlternativeNum" class="control-label"></label>
+                         <input asp-for="AlternativeNum" type="number" class="form-control" />
+                       <span asp-validation-for="AlternativeNum" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                    </div>
+
+                  </div>  
+
+                  <div class="alert alert-secondary mt-1" role="alert">
+                  <div class="btn-group">
+                  <button type="button" class="btn btn-outline-warning prev-step" id="p-btn1"><i class="fa fa-backward"></i> Previous</button>
+                  <button type="button" class="btn btn-danger next-step" id="n-btn2"><i class="fa fa-arrow-right"></i> Next</button>
+                  </div>
+                   </div>
+
+                   </div>
+                  <div class="tab-pane" role="tabpanel" id="step3">
+
+                      <div class="form-row">
+
+                    
+                           <div class="form-group col-md-6">
+                     <label asp-for="Province" class="control-label"></label>
+                         <select asp-for="Province" class="form-control" asp-items="Html.GetEnumSelectList<eProvince>()">
+                            <option selected="selected" value="">Select Province</option>
+                         </select>
+                        <span asp-validation-for="Municipality" class="text-danger"></span>
+                    </div>
+                  
+
+                     <div class="form-group col-md-6">
+                     <label asp-for="Municipality" class="control-label"></label>
+                         <select asp-for="Municipality" class="form-control" asp-items="Html.GetEnumSelectList<eMunicipality>()">
+                            <option selected="selected" value="">Select Municipality</option>
+                         </select>
+                        <span asp-validation-for="Municipality" class="text-danger"></span>
+                    </div>
+                    </div>
+                       <a href="#" class="badge badge-primary">Residential Address</a>
+                        <a href="#" class="badge badge-primary float-right">Postal Address</a>
+                      <div class="row">
+                     <div class="form-group col-md-4">
+                      <label asp-for="AddressLine1" class="control-label"></label>
+                         <input asp-for="AddressLine1" class="form-control" id="addrLine1Pos"/>
+                       <span asp-validation-for="AddressLine1" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                    <div class="form-check ml-5">
+                                    <input class="form-check-input" type="checkbox" value="" id="chkFillAddress" name="chkFillAddress" >
+                                    <label class="form-check-label text-danger" for="chkFillAddress">
+                                        Same As Residential? 
+                                    </label>
+                                </div>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                      <label asp-for="AddressLine1" class="control-label text-right"></label>
+                         <input type="text" class="form-control" id="addrLine1Res" />
+                       <span asp-validation-for="AddressLine1" class="text-danger"></span>
+                    </div>
+                   </div>
+                      <div class="row">
+                            <div class="form-group col-md-4">
+                              <label asp-for="City" class="control-label"></label>
+                                 <input asp-for="City" class="form-control" id="cityPos" />
+                               <span asp-validation-for="City" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group col-md-4">
+                            
+                            </div>
+
+                            <div class="form-group col-md-4">
+                              <label asp-for="City" class="control-label"></label>
+                                 <input type="text" class="form-control" id="cityRes"/>
+                            </div>
+
+                             <div class="form-group col-md-2">
+                              <label asp-for="Code" class="control-label"></label>
+                                 <input asp-for="Code" class="form-control" id="postalPostal" />
+                                    <span asp-validation-for="Code" class="text-danger"></span>
+
+                            </div>
+
+                             <div class="form-group col-md-8">
+                           
+                            </div>
+
+                           <div class="form-group col-md-2">
+                              <label asp-for="Code" class="control-label"></label>
+                                 <input type="text" class="form-control" id="postalRes" />
+
+                            </div>
+
+
+
+                      </div>
+                      
+
+
+                <div class="alert alert-secondary mt-1" role="alert">
+                  <div class="btn-group">
+                 <button type="button" class="btn btn-outline-warning prev-step" id="p-btn2"><i class="fa fa-backward"></i> Previous</button>
+                 <button type="button" class="btn btn-danger next-step" id="n-btn3"><i class="fa fa-arrow-right"></i> Next</button>
+                 </div>
+
+                </div>
+              </div>
+
+               <div class="tab-pane" role="tabpanel" id="complete">
+                   
+                   <div class="alert alert-danger" role="alert">
+                     <div class="form-group col-md-8">
+                         <label class="form-check-label">
+                             <input class="form-check-input" asp-for="IsCurrentlyEmployed" /> @Html.DisplayNameFor(model => model.IsCurrentlyEmployed)
+                        </label>
+                    </div>
+                     </div>
+
+                     <div class="alert alert-warning" role="alert">
+                      <strong>Prospective Employer - Definition</strong><br />
+                      Prospective employer means any employer to which a
+                      prospective employee has made application, either oral or written,
+                      or forwarded a resume
+                      or other correspondence expressing an interest in employment.
+                    </div>
+
+                      <div class="form-group col-md-4">
+                    <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="chkEmployment" name="chkFillAddress" >
+                                    <label class="form-check-label text-danger" for="chkFillAddress">
+                                        Has Prospective Employer?
+                                    </label>
+                                </div>
+                    </div>
+
+                     <div class="form-group col-md-8" id="prospEmployer">
+                        <label asp-for="ProspectiveEmployer" class="control-label"></label>
+                          <input asp-for="ProspectiveEmployer" class="form-control" />
+                        <span asp-validation-for="ProspectiveEmployer" class="text-danger"></span>
+                    </div>
+
+
+                <br /><br />
+
+                <div class="form-group">
+                   <button type="submit" id="btnSubmit" value="Submit" class="btn btn-success" ><i class="fa fa-save"></i> Save</button >
+                    <button type="button" id="btnClose" value="Close" class="btn btn-outline-danger" ><i class="fa fa-close"></i> Close</button >
+
+                </div>
+                  </div>
+                                    <div class="clearfix"></div>
+                   </div>
+                       </form>
+
+                       </div>
+                      </div>
+                     </div>
+                    </div>
+
+
+                        </section>
+                    </div>
+                </div>
+
+
+<form asp-action="SearchApplicant" asp-controller="Applicant">
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Search by ID</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <input required name="userId" type="number" maxlength="13" placeholder="Enter ID Number" class="form-control"/>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary"><i class="fa fa-search>"></i> Search</button>
+      </div>
+    </div>
+  </div>
+</div>
+</form>
+<br>
+<br />
+
+
+<div class="closed">
+    <div class="col-md-12">
+        <div class="card border-left-danger shadow h-100 py-2">
+            <div class="card-body">
+                <div class="alert alert-danger mt-1" role="alert">
+                    <strong class="text-center">Applications Closed!</strong><br /><hr /><br />
+                    Unfortunately applications for the Forek-Mega Apprentice Programme 2022 has closed.
+                    However, do not dispair - applications are still open for the <strong>
+                        Forek Artisan Development Programme 2022<br />
+                    </strong>
+                </div>
+            </div>
+        </div>
+  </div>
+</div>
+<br />
+  
+
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<script>
+
+                $(document).ready(function () {
+
+                    $('#dis').hide();
+                    $(".closed").hide();
+                    $('#dis2').hide();
+                    $('#prospEmployer').hide();
+                  
+
+                    $('.newApp').on("click", function (){
+                        $('.apprenticeRegister').show();
+                    });
+
+
+                    $("#chkDisability").on("click", function () {
+                        if (this.checked) {
+                            $('#dis').show();
+                            $('#dis2').show();
+                        } else {
+                             $('#dis').hide();
+                             $('#dis2').hide();
+                        }
+                    });
+
+                    
+
+            
+
+                  $("#chkEmployment").on("click", function () {
+                        if (this.checked) {
+                            $('#prospEmployer').show();
+                        } else {
+                             $('#prospEmployer').hide();
+                        }
+                    });
+                });
+
+             
+
+                        $('#tradeProgramme').on('change', function () {
+                        var selectedItem = $("#tradeProgramme").find('option:selected').text();
+                        if(selectedItem == "Forek & MEGA Apprentice Opportunity 2022"){
+                            $('.closed').show();
+                        }
+                        else{
+                            $('.closed').hide();
+                            $('.apprenticeRegister').show();
+                        }
+                        });
+
+                        $('.btnAppl').click(function (){
+                            $('#tradeProgramme').prop('selectedIndex',0);
+                            $('.closed').hide();
+                        });
+
+                 
+
+
+                 $(document).ready(function () {
+                $("#chkFillAddress").on("click", function () {
+                    if (this.checked) {
+                        $("#addrLine1Res").val($("#addrLine1Pos").val());
+                        $("#addrLine2Res").val($("#addrLine2Pos").val());
+                        $("#cityRes").val($("#cityPos").val());
+                        $("#postalRes").val($("#postalPostal").val());
+                    } else {
+                        $("#addrLine1Res").val('');
+                        $("#addrLine2Res").val('');
+                        $("#cityRes").val('');
+                        $("#postalRes").val('');
+                    }
+                });
+            });
+           
+
+
+
+$("#n-btn1").click(function () {
+	$('#myTab li:nth-child(2) a').tab('show');
+});
+$("#n-btn2").click(function () {
+	$('#myTab li:nth-child(3) a').tab('show');
+});
+$("#n-btn3").click(function () {
+	$('#myTab li:nth-child(4) a').tab('show');
+});
+
+$("#p-btn1").click(function () {
+	$('#myTab li:nth-child(1) a').tab('show');
+});
+$("#p-btn2").click(function () {
+	$('#myTab li:nth-child(2) a').tab('show');
+});
+
+</script>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

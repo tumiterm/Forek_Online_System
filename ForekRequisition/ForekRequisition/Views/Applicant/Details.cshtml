@@ -1,0 +1,29 @@
+﻿@model ApprenticeApplications.Models.Applicant
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div>
+    <br />
+   <div class="alert alert-success mt-1" role="alert">
+
+       Application Successful<br /><hr />
+       Application has been successfully submitted and recieved for:<br /><br />
+       <b>Name</b>     : @Html.DisplayFor(model => model.Name) <br />
+       <b>Lastname</b> : @Html.DisplayFor(model => model.LastName) <br /> 
+       <b>ID Number</b>: @Html.DisplayFor(model => model.IDNumber) <br />
+       <b>Programme</b>: @Html.DisplayFor(model => model.Trade) <br />
+       <b>Reference Number</b>: @Html.DisplayFor(model => model.ReferenceNumber) <br /><br />
+
+       Your reference number is unique to you and should be quoted for
+       all means of communication.
+
+   </div>
+  
+</div>
+<div>
+    <a asp-action="Edit" class="btn btn-outline-danger" asp-route-id="@Model?.Id">Download</a> 
+    <a asp-action="Index" class="btn btn-outline-dark">Close</a>
+</div>
+<br />

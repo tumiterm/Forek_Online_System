@@ -1,0 +1,190 @@
+﻿@model ForekRequisition.Models.ViewModel.ApplicantsViewModel
+
+@{
+    Layout = null;
+}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" />
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap4.min.css" />
+<script src="https://use.fontawesome.com/65d1ed3b51.js"></script>
+
+<div class="alert alert-dark mr-5 ml-5" role="alert">
+    <div class="btn-group">
+          <a asp-action="" class="btn btn-outline-danger"><i class="fa fa-close"> Close</i></a>
+           <a asp-action="Logout" asp-controller="Auth" class="btn btn-dark"><i class="fa fa-sign-out"> Logout</i></a>
+    </div>
+</div>
+<br /><br />
+
+<div class="card shadow mb-4">
+   <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">
+            List of Qualified Apprentice Applicants
+        </h6>
+  </div>
+
+
+    <div class="card-body">
+
+      <div class="table table-striped table-bordered" width="100%" cellspacing="0">
+          <table class="table thead-dark table-sm qualApplicants">
+    <thead>
+        <tr>
+
+            <th>
+                
+            </th>
+            <th>
+                First Name
+            </th>
+            <th>
+                Last Name
+            </th>
+            <th>
+                ID Number
+            <th>
+                Type
+            </th>
+
+            <th>Programme</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var applicant in Model.QualifiedApplicants) {
+        <tr>
+
+            <td>
+                <a asp-action="ApprenticeEdit" asp-controller="ApprenticeResults" asp-route-id="@applicant.Id"> Open</a> 
+
+            </td>
+            <td>
+               @applicant.Name
+            </td>
+            <td>
+                 @applicant.LastName
+            </td>
+            <td>
+                @applicant.IdNumber
+            </td>
+
+             <td>
+                @applicant.ProgrammeType
+            </td>
+
+            <td>
+                @applicant.Programme
+            </td>
+       
+       
+        </tr>
+}
+    </tbody>
+</table>
+</div>
+</div>
+</div>
+
+<br />
+
+<div class="card shadow mb-4">
+   <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">
+            List of NOT Qualified Apprentice Applicants
+        </h6>
+  </div>
+
+
+    <div class="card-body">
+
+      <div class="table table-striped table-bordered" id="dataTable" width="100%" cellspacing="0">
+          <table class="table thead-dark table-sm qualApplicants">
+    <thead>
+        <tr>
+
+            <td>
+
+            </td>
+            <th>
+                First Name
+            </th>
+            <th>
+                Last Name
+            </th>
+            <th>
+                ID Number
+            <th>
+                Type
+            </th>
+
+            <th>Programme</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var applicant in Model.NotQualified) {
+        <tr>
+
+            <td>
+             <a asp-action="ApprenticeEdit" asp-controller="ApprenticeResults" asp-route-id="@applicant.Id"> Open</a> 
+            </td>
+
+
+            <td>
+               @applicant.Name
+            </td>
+            <td>
+                 @applicant.LastName
+            </td>
+            <td>
+                 @applicant.IdNumber
+            </td>
+            <td> @applicant.ProgrammeType</td>
+
+            <td> @applicant.Programme</td>
+        </tr>
+}
+    </tbody>
+</table>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap4.min.js"></script>
+</div>
+</div>
+</div>
+
+<script>
+    $(document).ready(function(){
+
+        $('.qualApplicants').DataTable({
+
+            initComplete: function(){
+
+                this.api().columns([4,5]).every(function (){
+
+                    var column = this;
+                    var select = $('<select><option value=""></option></select>')
+                    .appendTo($(column.header()).empty())
+                    .on('change', function () {
+                        var val = $.fn.dataTable.util.escapeRegex(
+                            $(this).val()
+                        );
+
+                        column.search(val ? '^' + val + '$' : '', true, false)
+                        .draw();
+                    });
+
+                    column.data().unique().sort().each(function (d,j){
+
+                        select.append('<option value="'+d+'">' + d + '</option>')
+                    });
+                });
+            }
+
+        });
+
+    });
+</script>
+
+
+

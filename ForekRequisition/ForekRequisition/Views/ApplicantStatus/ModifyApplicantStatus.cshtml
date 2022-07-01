@@ -1,0 +1,119 @@
+﻿
+@using ApprenticeApplications.Models.Enums
+@model dynamic
+
+@{
+    ViewData["Title"] = "Status";
+}
+
+<style>
+    .form-control{
+        border-color: black;
+    }
+</style>
+<br />
+<div class="alert alert-danger" role="alert">
+  <h5 class="text-center">Modify Applicant Status</h5>
+</div>
+
+
+
+<form asp-action="ModifyApplicantStatus">
+    <div class="accordion" id="accordionExample">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h2 class="mb-0">
+       <button class="btn btn-link" onclick="$('#collapsed-chevronSpouse').toggleClass('fa-rotate-180')" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        <i class="fa fa-chevron-circle-up" id="collapsed-chevronSpouse"></i>
+          Modify Applicant Status
+        </button>
+      </h2>
+    </div>
+
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <div class="card-body">
+
+
+
+    <div class="col-md-4">
+        
+         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label name="ApplicationStatus" class="control-label"></label>
+                <select name="ApplicationStatus" asp-items="Html.GetEnumSelectList<eStatus>()" class="form-control">
+                    <option selected="selected" value="">Modify Status</option>
+                </select>
+                <span name="ApplicationStatus" class="text-danger"></span>
+           </div>
+       </div>
+       <div class="col-md-8">
+           <div class="form-group">
+                <label name="Description" class="control-label"></label>
+                    <input class="form-control text-box" type="text" name="Description" id="Description" required />
+
+                <span name="ApplicationStatus" class="text-danger"></span>
+           </div>
+
+      
+            <div class="form-group">
+                <button type="submit" value="Change" class="btn btn-success"><i class="fa fa-save"></i> Change</button>
+                <button type="button" class="btn btn-danger"><i class="fa fa-close"></i> Close</button>
+            </div>
+      </div>
+      </div>
+</div></div></div>
+</form>
+<br />
+
+
+<div id="accordion">
+    <div class="card">
+        <div class="card-header" id="headingOne">
+            <h5 class="mb-0">
+                <button class="btn btn-link" onclick="$('#collapsed-chevronSpouse').toggleClass('fa-rotate-180')" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    <i class="fa fa-chevron-circle-up" id="collapsed-chevronSpouse"></i>
+                    Applicant Status
+                </button>
+            </h5>
+        </div>
+
+        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="card-body">
+                <table class="table table-striped" id="statusTbl">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Status</th>
+                            <th>Created By</th>
+                            <th>Created On</th>
+                            <th>Description</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    @foreach (ApplicantStatus status in Model.Status)
+                    {
+                        <tr>
+                            <td>@status.ApplicationStatus</td>
+                            <td>@status.CreatedBy</td>
+                            <td>@status.CreatedOn</td>
+                            <td>@status.Description</td>
+                            <td class="btn-group">
+                                <li class="btn btn-outline-warning "><a href="@Url.Action("Edit", "ApplicantStatus", new { id =status.Id})"><i class="fa fa-edit"></i> Edit</a></li>
+                                <li class="btn btn-outline-danger "><a href="@Url.Action("Delete", "ApplicantStatus", new { id =status.Id})"><i class="fa fa-trash"></i> Revoke</a></li>
+
+                            </td>
+
+
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

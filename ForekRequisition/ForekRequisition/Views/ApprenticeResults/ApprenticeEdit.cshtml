@@ -1,0 +1,326 @@
+﻿@using ApprenticeApplications.Models.Enums
+@model ForekRequisition.Models.ApprenticeResult
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<link href="~/css/dashboard.css" rel="stylesheet" />
+
+<style>
+    .container {
+  width: 1180px;
+  margin-top: 3em;
+}
+#accordion .panel {
+  border-radius: 0;
+  border: 0;
+  margin-top: 0px;
+}
+#accordion a {
+  display: block;
+  padding: 10px 15px;
+  border-bottom: 1px solid #b42b2b;
+  text-decoration: none;
+}
+#accordion .panel-heading a.collapsed:hover,
+#accordion .panel-heading a.collapsed:focus {
+  background-color: #b42b2b;
+  color: white;
+  transition: all 0.2s ease-in;
+}
+#accordion .panel-heading a.collapsed:hover::before,
+#accordion .panel-heading a.collapsed:focus::before {
+  color: white;
+}
+#accordion .panel-heading {
+  padding: 0;
+  border-radius: 0px;
+  text-align: center;
+}
+#accordion .panel-heading a:not(.collapsed) {
+  color: white;
+  background-color: #b42b2b;
+  transition: all 0.2s ease-in;
+}
+
+/* Add Indicator fontawesome icon to the left */
+#accordion .panel-heading .accordion-toggle::before {
+  font-family: 'FontAwesome';
+  content: '\f00d';
+  float: left;
+  color: white;
+  font-weight: lighter;
+  transform: rotate(0deg);
+  transition: all 0.2s ease-in;
+}
+#accordion .panel-heading .accordion-toggle.collapsed::before {
+  color: #444;
+  transform: rotate(-135deg);
+  transition: all 0.2s ease-in;
+}
+
+ .form-control
+    {
+     border-color: #000000;
+
+    }
+
+
+</style>
+
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"> -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"> 
+
+
+<div class="container">
+    <a asp-action="Index" class="btn btn-success mb-0 mt-0 float-right"><i class="fa fa-eye"> View All</i></a>
+             <form asp-action="ApprenticeEdit" enctype="multipart/form-data">
+            
+                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                  <input type="hidden" asp-for="Id" />
+                      <div id="accordion" class="panel-group">
+                        <div class="panel">
+                          <div class="panel-heading">
+                          <h5 class="panel-title">
+                            <a href="#panelBodyOne" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"><i class="fa fa-user"></i> Personal Details: @ViewData["Name"] @ViewData["LastName"]</a>
+                            </h5>
+                          </div>
+                          <div id="panelBodyOne" class="panel-collapse collapse in">
+                          <div class="panel-body">
+
+                              
+
+          
+                <div class="row mr-0 ml-0">
+                    <div class="col-xl-12 col-md-12 mb-4 mr-0 ml-0">
+                        <div class="card border-left-danger shadow h-100 py-2 mr-0 ml-0">
+                            <div class="card-body">
+                                <div class="form-row">   
+
+                                       <div class="form-group col-md-4">
+                                            <label asp-for="Name" class="control-label"></label>
+                                            <input asp-for="Name" class="form-control" />
+                                            <span asp-validation-for="Name" class="text-danger"></span>
+                                       </div>
+                    
+
+                                          <div class="form-group col-md-4">
+                                            <label asp-for="LastName" class="control-label"></label>
+                                            <input asp-for="LastName" class="form-control" />
+                                            <span asp-validation-for="LastName" class="text-danger"></span>
+                                        </div>
+
+                                     <div class="form-group col-md-4">
+                                       <label asp-for="Gender" class="control-label"></label>
+                                          <select asp-for="Gender" class="form-control" id="Gender" asp-items="Html.GetEnumSelectList<eGender>()">
+                                              <option selected="selected" value="">Select Gender</option>
+                                          </select> 
+                                        <span asp-validation-for="Gender" class="text-danger"></span>
+                                      </div>
+                
+                                </div>
+
+                               <div class="form-row">   
+                    
+
+                                  <div class="form-group col-md-6">
+                                        <label asp-for="IdNumber" class="control-label"></label>
+                                        <input asp-for="IdNumber" class="form-control" />
+                                        <span asp-validation-for="IdNumber" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                        <label asp-for="Cellphone" class="control-label"></label>
+                                        <input asp-for="Cellphone" class="form-control" />
+                                        <span asp-validation-for="Cellphone" class="text-danger"></span>
+                                </div>
+
+                                
+                                <div class="form-group col-md-6">
+                                       <label asp-for="District" class="control-label"></label>
+                                          <select asp-for="District" class="form-control" id="District" asp-items="Html.GetEnumSelectList<eMunicipality2>()">
+                                              <option selected="selected" value="">Select Municipality</option>
+                                          </select> 
+                                        <span asp-validation-for="District" class="text-danger"></span>
+                              </div>
+
+                                 <div class="form-group col-md-6">
+                                       <label asp-for="MunicipalDistrict" class="control-label"></label>
+                                          <select asp-for="MunicipalDistrict" class="form-control" id="MunicipalDistrict" asp-items="Html.GetEnumSelectList<eDistrict>()">
+                                              <option selected="selected" value="">Select District</option>
+                                          </select> 
+                                        <span asp-validation-for="MunicipalDistrict" class="text-danger"></span>
+                                 </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+        
+
+
+        </div>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panel-heading">
+      <h5 class="panel-title">
+        <a href="#panelBodyTwo" class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion"><i class="fa fa-book"></i> Course Information</a>
+        </h5>
+      </div>
+      <div id="panelBodyTwo" class="panel-collapse collapse">
+      <div class="panel-body">
+
+          
+                <div class="row mr-0 ml-0">
+                    <div class="col-xl-12 col-md-12 mb-4 mr-0 ml-0">
+                        <div class="card border-left-danger shadow h-100 py-2 mr-0 ml-0">
+                            <div class="card-body">
+
+                    <div class="form-group">
+                           <label asp-for="Programme" class="control-label"></label>
+                              <select asp-for="Programme" class="form-control" id="trade" asp-items="Html.GetEnumSelectList<eProgramme>()">
+                                  <option selected="selected" value="">Select Apprentice Programme</option>
+                              </select> 
+               <span asp-validation-for="Programme" class="text-danger"></span>
+                  </div>
+            <div class="form-group">
+                <label asp-for="ProgrammeType" class="control-label"></label>
+                     <select asp-for="ProgrammeType" class="form-control" id="trade" asp-items="Html.GetEnumSelectList<eProgrammeType>()">
+                              <option selected="selected" value="">Select Apprentice Type</option>
+                     </select> 
+                 <span asp-validation-for="ProgrammeType" class="text-danger"></span>
+            </div> 
+            </div>
+      </div>
+        </div>
+          </div>
+            </div>
+              </div>
+    </div>
+    <div class="panel">
+      <div class="panel-heading">
+      <h5 class="panel-title">
+        <a href="#panelBodyThree" class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion"><i class="fa fa-list"></i> Apprentice Results</a>
+        </h5>
+      </div>
+      <div id="panelBodyThree" class="panel-collapse collapse">
+      <div class="panel-body">
+           <div class="row mr-0 ml-0">
+                    <div class="col-xl-12 col-md-12 mb-4 mr-0 ml-0">
+                        <div class="card border-left-danger shadow h-100 py-2 mr-0 ml-0">
+                            <div class="card-body">
+            
+
+          <div class="form-row">
+               <div class="form-group col-md-4">
+                <label asp-for="PercentageObtained" class="control-label"></label>
+                <input asp-for="PercentageObtained" class="form-control" />
+                <span asp-validation-for="PercentageObtained" class="text-danger"></span>
+            </div>
+
+             <div class="form-group col-md-4">
+                <label asp-for="DoesApplicantQualify" class="control-label"></label>
+                <select asp-for="DoesApplicantQualify" class="form-control" id="trade" asp-items="Html.GetEnumSelectList<eDecision>()">
+                         <option selected="selected" value="">Select Option</option>
+                    </select> 
+                <span asp-validation-for="DoesApplicantQualify" class="text-danger"></span>
+            </div>
+
+             <div class="form-group col-md-4">
+                                       <label asp-for="IsApproved" class="control-label"></label>
+                                          <select asp-for="IsApproved" class="form-control" id="Gender" asp-items="Html.GetEnumSelectList<eApproval>()">
+                                              <option selected="selected" value="">--- Select ---</option>
+                                          </select> 
+                                        <span asp-validation-for="IsApproved" class="text-danger"></span>
+            </div>
+
+              <div class="form-group col-md-12">
+                <label asp-for="Recommendation" class="control-label"></label>
+                <textarea asp-for="Recommendation" class="form-control"></textarea>
+                <span asp-validation-for="Recommendation" class="text-danger"></span>
+            </div>
+
+            <div class="form-check mr-2">
+                <input class="form-check-input " id="chkAddMore" name="AddMore" type="checkbox" checked/>
+                <label class="form-check-label" for="chkAddMore">
+                    Add More?
+                </label>
+            </div>
+
+          </div>
+
+          <br />
+
+          <div class="form-row">
+
+               <div class="form-group mr-3">
+                <button type="submit" class="btn btn-outline-danger"><i class="fa fa-save"></i> Save</button>
+
+            </div> 
+            
+             <div class="form-group">
+               <button type="reset" class="btn btn-danger"><i class="fa fa-undo"></i> Reset</button>
+            </div>
+
+          </div>
+           
+          </div>
+         </div>
+         </div>
+         </div>
+         
+      </div>
+      </div>
+    </div>
+  </div>
+   </form>
+
+   <br />
+
+
+
+   <form asp-action="ResultsSearch" asp-controller="ApprenticeResults">
+       <div class="modal fade" id="resultsModal" tabindex="-1" aria-labelledby="resultsModalLabel" aria-hidden="true">
+           <div class="modal-dialog">
+               <div class="modal-content">
+                   <div class="modal-header">
+                       <h5 class="modal-title" id="resultsModalLabel">Search by ID Number</h5>
+                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                           <span aria-hidden="true">&times;</span>
+                       </button>
+                   </div>
+                   <div class="modal-body">
+                       <input required name="IdNumber" type="number" maxlength="13" placeholder="Enter ID Number" class="form-control" />
+                   </div>
+                   <div class="modal-footer">
+                       <button type="button" class="btn btn-secondary" data-dismiss="modal"> Close</button>
+                       <button type="submit" class="btn btn-primary" data-dismiss="modal"> Search</button>
+
+                   </div>
+               </div>
+           </div>
+
+       </div>
+   </form>
+
+
+</div>
+
+
+<br /><br />
+       
+
+<!-- Latest compiled and minified JavaScript -->
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script> -->
+
+     
+           
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

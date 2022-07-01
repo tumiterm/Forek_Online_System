@@ -1,0 +1,682 @@
+﻿@model ForekRequisition.Models.Student
+@using ApprenticeApplications.Models.Enums
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+.collapsible {
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 47%, rgba(0,212,255,1) 100%);
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.active, .collapsible:hover {
+  background-color: none;
+}
+
+.collapsible:after {
+  content: '\002B';
+  color: white;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2212";
+}
+
+.content {
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
+
+.cont{
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: #f1f1f1;
+}
+
+  .form-control,.Usertitle
+    {
+     border-color: #000000;
+
+    }
+    .nated{
+        background: rgb(2,0,36);
+        background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(62,62,190,0.950315160243785) 61%, rgba(0,212,255,1) 100%);
+    }
+    .course{
+        background: rgb(80,12,4);
+        background: linear-gradient(90deg, rgba(80,12,4,0.8074580173866421) 100%, rgba(195,36,101,0.8746849081429446) 100%);
+    }
+</style>
+
+</head>
+
+<br />
+
+
+
+<div style="background-color: lightgrey">
+<ul class="nav nav-tabs" id="myTab" role="tablist" style="margin-top:2px;margin-bottom:2px;">
+  <li class="nav-item" role="presentation">
+    <a style="background-color: cadetblue" class="nav-link active" id="home-tab text-white" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Application</a>
+  </li>
+
+  <li class="nav-item" role="presentation">
+    <a style="background-color: darkorange" class="nav-link" id="fee-tab text-white" data-toggle="tab" href="#fee" role="tab" aria-controls="fee" aria-selected="true">Fee Structure</a>
+  </li>
+
+  <li class="nav-item" role="presentation">
+    <a style="background-color:lightblue" class="nav-link" id="profile-tab text-white" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Policies & Procedures</a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a style="background-color: saddlebrown" class="nav-link" id="contact-tab text-white" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Code Of Conduct</a>
+  </li>
+</ul>
+</div>
+<br />
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+  
+  <form asp-action="OnRegisterStudent" enctype="multipart/form-data">
+<body>
+ <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+  <div class="alert alert-primary" role="alert">
+    <div class="row">
+      
+        <div class="form-group col-md-4">
+             <label asp-for="Course" class="control-label"></label>
+                    <select asp-for="Course" class="form-control" id="title" asp-items="Html.GetEnumSelectList<eCourse>()">
+                       <option selected="selected" value="">Select Course</option>
+                    </select> 
+                 <span asp-validation-for="Course" class="text-danger"></span>
+        </div>
+
+         <div class="form-group col-md-4">
+                <label asp-for="CourseDescription" class="control-label"></label>
+                <input asp-for="CourseDescription" class="form-control" placeholder="Example: Electrical Engineering" />
+                <span asp-validation-for="CourseDescription" class="text-danger"></span>
+            </div>
+
+        <div class="form-group col-md-4">
+             <label asp-for="StudyMode" class="control-label"></label>
+                    <select asp-for="StudyMode" class="form-control" id="title" asp-items="Html.GetEnumSelectList<eStudyMode>()">
+                       <option selected="selected" value="">Select Study Mode</option>
+                    </select> 
+                 <span asp-validation-for="StudyMode" class="text-danger"></span>
+        </div>
+
+           </div>
+    </div>
+
+   <section>
+   <button type="button" class="collapsible panel-heading"><i class="fa fa-user"></i> 
+       Student Information</button>
+   <div class="content mb-2">
+        <div class="row">
+            
+             <div class="form-group col-md-4">
+                <label asp-for="Title" class="control-label"></label>
+                    <select asp-for="Title" style="height:25px" class="form-control" id="Usertitle" asp-items="Html.GetEnumSelectList<eTitle>()">
+                       <option selected="selected" value="">Select Title</option>
+                    </select> 
+                 <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+           
+
+             <div class="form-group col-md-4">
+                <label asp-for="FullNames" class="control-label"></label>
+                <input asp-for="FullNames" class="form-control" />
+                <span asp-validation-for="FullNames" class="text-danger"></span>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label asp-for="Surname" class="control-label"></label>
+                <input asp-for="Surname" class="form-control" />
+                <span asp-validation-for="Surname" class="text-danger"></span>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label asp-for="Cellphone" class="control-label"></label>
+                <input asp-for="Cellphone" class="form-control" />
+                <span asp-validation-for="Cellphone" class="text-danger"></span>
+            </div>
+
+
+             <div class="form-group col-md-4">
+                <label asp-for="AlternativeNum" class="control-label"></label>
+                <input asp-for="AlternativeNum" class="form-control" />
+                <span asp-validation-for="AlternativeNum" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group col-md-4">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+           
+
+            <div class="form-group col-md-4">
+                <label asp-for="Nationality" class="control-label"></label>
+                    <select asp-for="Nationality" class="form-control" id="title" asp-items="Html.GetEnumSelectList<eNationality>()">
+                       <option selected="selected" value="">Select Nationality</option>
+                    </select> 
+                 <span asp-validation-for="Nationality" class="text-danger"></span>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label asp-for="IDNumber" class="control-label"></label>
+                <input asp-for="IDNumber" class="form-control" />
+                <span asp-validation-for="IDNumber" class="text-danger"></span>
+            </div>
+
+             <div class="form-group col-md-4">
+                <label asp-for="RSAID" class="control-label"></label>
+                <input asp-for="RSAID" type="file" required multiple class="form-control" />
+                <span asp-validation-for="RSAID" class="text-danger"></span>
+            </div>
+</div>
+</section>
+ 
+<section>
+<button type="button" class="collapsible panel-heading"><i class="fa fa-home"></i>
+    Address Information</button>
+<div class="cont mb-2">
+        <div class="form-row">
+
+             <div class="form-group col-md-12">
+                <label asp-for="Address" class="control-label"></label>
+                 @Html.EditorFor(m => m.Address, additionalViewData: new { htmlAttributes = new { @class = "form-control" }})
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+
+
+
+            <div class="form-group col-md-4">
+                <label asp-for="AddressType" class="control-label"></label>
+                    <select asp-for="AddressType" class="form-control" id="title" asp-items="Html.GetEnumSelectList<eAddressType>()">
+                       <option selected="selected" value="">Select Address Type</option>
+                    </select> 
+                 <span asp-validation-for="AddressType" class="text-danger"></span>
+            </div>
+
+             <div class="form-group col-md-4">
+                <label asp-for="AttachProofRes" class="control-label"></label>
+                <input type="file" asp-for="AttachProofRes" class="form-control" />
+                <span asp-validation-for="AttachProofRes" class="text-danger"></span>
+            </div> 
+            
+
+            <div class="form-group col-md-4">
+                <label asp-for="Code" class="control-label"></label>
+                <input asp-for="Code" class="form-control" />
+                <span asp-validation-for="Code" class="text-danger"></span>
+            </div> 
+</div>
+</section>
+
+<section>
+<button type="button" class="collapsible panel-heading"><i class="fa fa-female"></i>
+    Parent/Guardian Information</button>
+<div class="cont mb-2">
+        <div class="form-row">
+             <div class="form-group col-md-4">
+                <label asp-for="GuardianName" class="control-label"></label>
+                <input asp-for="GuardianName" class="form-control" />
+                <span asp-validation-for="GuardianName" class="text-danger"></span>
+            </div>
+
+             <div class="form-group col-md-4">
+                <label asp-for="GuardianLastName" class="control-label"></label>
+                <input asp-for="GuardianLastName" class="form-control" />
+                <span asp-validation-for="GuardianLastName" class="text-danger"></span>
+            </div>
+
+           <div class="form-group col-md-4">
+                <label asp-for="Relationship" class="control-label"></label>
+                    <select asp-for="Relationship" class="form-control" id="relationship" asp-items="Html.GetEnumSelectList<eRelationship>()">
+                       <option selected="Relationship" value="">Select Relationship</option>
+                    </select> 
+                 <span asp-validation-for="Relationship" class="text-danger"></span>
+            </div>
+
+             <div class="form-group col-md-4">
+                <label asp-for="GuardianCell" class="control-label"></label>
+                <input asp-for="GuardianCell" class="form-control" />
+                <span asp-validation-for="GuardianCell" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="GuardianTel" class="control-label"></label>
+                <input asp-for="GuardianTel" class="form-control" />
+                <span asp-validation-for="GuardianTel" class="text-danger"></span>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label asp-for="GuardianID" class="control-label"></label>
+                <input asp-for="GuardianID" class="form-control" />
+                <span asp-validation-for="GuardianID" class="text-danger"></span>
+            </div>
+        </div>
+      </div>
+</section>
+
+<section>
+<button type="button" class="collapsible panel-heading"><i class="fa fa-building"></i>
+    School Leaving & Employment Details</button>
+<div class="cont mb-2">
+        <div class="form-row">
+             <div class="form-group col-md-4">
+                <label asp-for="GradePassed" class="control-label"></label>
+                    <select asp-for="GradePassed" class="form-control" id="title" asp-items="Html.GetEnumSelectList<eGradePassed>()">
+                       <option selected="selected" value="">Select Highest Grade Passed</option>
+                    </select> 
+                 <span asp-validation-for="GradePassed" class="text-danger"></span>
+            </div>
+
+              <div class="form-group col-md-4">
+                <label asp-for="HighestQual" class="control-label"></label>
+                    <select asp-for="HighestQual" class="form-control" id="qual" asp-items="Html.GetEnumSelectList<eQualifLevel>()">
+                       <option selected="selected" value="">Select Highest Qualification</option>
+                    </select> 
+                 <span asp-validation-for="HighestQual" class="text-danger"></span>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label asp-for="HighestCert" class="control-label"></label>
+                <input asp-for="HighestCert" type="file" class="form-control" />
+                <span asp-validation-for="HighestCert" class="text-danger"></span>
+            </div> 
+            <div class="form-group col-md-4">
+             <label asp-for="HasFunding" class="control-label"></label>
+                    <select asp-for="HasFunding" class="form-control" id="HasFunding" asp-items="Html.GetEnumSelectList<eFunding>()">
+                       <option selected="selected" value="">Select Option</option>
+                    </select> 
+                 <span asp-validation-for="HasFunding" class="text-danger"></span>
+           </div>
+
+           <div class="form-group col-md-4">
+                <label asp-for="FunderNameSurname" class="control-label"></label>
+                <input asp-for="FunderNameSurname" class="form-control" />
+                <span asp-validation-for="FunderNameSurname" class="text-danger"></span>
+            </div> 
+
+            <div class="form-group col-md-4">
+                <label asp-for="FunderContact" class="control-label"></label>
+                <input asp-for="FunderContact" class="form-control" />
+                <span asp-validation-for="FunderContact" class="text-danger"></span>
+            </div>
+
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsEmployed" /> @Html.DisplayNameFor(model => model.IsEmployed)
+                </label>
+            </div>
+        </div>
+      </div>
+</section>
+
+      </body>  
+
+       <button type="submit" class="btn  btn-success">
+                        <i class="fa fa-save"></i>
+                        Save
+                    </button>
+
+           <button type="reset" class="btn btn-outline-primary ml-1">
+                        <i class="fa fa-undo"></i>
+                        Reset
+                    </button>
+
+            <button type="reset" class="btn btn-danger float-right ml-1">
+                     <i class="fa fa-close"></i>
+                        Close
+            </button>
+       
+      </form>
+  
+  
+  </div>
+  
+  
+  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+      <br />
+     <div class="alert alert-warning" role="alert">
+         <p class="text-center"><strong>Admission Procedure</strong></p><hr />
+         Application must write a motivation letter so that the college can 
+         evaluate their current competence and commitment. Should applicant not meet the minimum criteria, they may be recommending for tests. These could include aptitude tests, literacy,
+         reading skills, numeracy, reasoning skills and studying skills.
+
+         <br />
+        <p class="text-center"><strong>Registration Procedure</strong></p><hr />
+        <p>Step 1: Complete and sign the registration form</p>
+        Step 2: Attach the required certified documentation as follows:
+        <p> - A copy of your latest school results</p>
+        - A copy of I.D. document
+        <p> - A copy of study permit (foreign students only)</p>
+        - A copy of guardian I.D. document
+        <p> - A proof of Residence</p>
+       
+     </div>
+  </div>
+
+<div class="tab-pane fade" id="fee" role="tabpanel" aria-labelledby="fee-tab">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="accordion" id="accordionOccup">
+              <div class="card">
+                <div class="card-header nated" id="headingOccup">
+                  <h2 class="mb-0">
+                    <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOccup" aria-expanded="true" aria-controls="collapseOccup">
+                      Occupational Qualifications
+                    </button>
+                  </h2>
+                </div>
+
+                <div id="collapseOccup" class="collapse show" aria-labelledby="headingOccup" data-parent="#accordionOccup">
+                  <div class="card-body">
+                      <table class="table table-striped">
+  <thead class="thead-dark">
+    <tr>
+   
+      <th scope="col">Trade</th>
+      <th scope="col">Level</th>
+      <th scope="col">Duration(Months)</th>
+      <th scope="col">Monthly Fee</th>
+      <th scope="col">Total</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+     
+      <td>Electrician</td>
+      <td>4</td>
+      <td>36</td>
+      <td>R2000.00</td>
+      <td>R72000.00</td>
+      
+    </tr>
+    <tr>
+     
+      <td>Plumber</td>
+      <td>4</td>
+      <td>36</td>
+      <td>R2000.00</td>
+      <td>R72000.00</td>
+    </tr>
+    <tr>
+     
+      
+      <td>Welder</td>
+      <td>4</td>
+      <td>36</td>
+      <td>R2000.00</td>
+      <td>R72000.00</td>
+    </tr>
+
+     <tr>
+     
+   
+      <td>Bricklayer</td>
+      <td>4</td>
+      <td>36</td>
+      <td>R2000.00</td>
+      <td>R72000.00</td>
+    </tr>
+
+     <tr>
+     
+    
+      <td>Painter</td>
+      <td>4</td>
+      <td>36</td>
+      <td>R2000.00</td>
+      <td>R72000.00</td>
+    </tr>
+
+     <tr>
+      
+   
+      <td>Plasterer & Tiler</td>
+      <td>4</td>
+      <td>36</td>
+      <td>R2000.00</td>
+      <td>R72000.00</td>
+    </tr>
+  </tbody>
+</table>
+                  </div>
+                </div>
+              </div>
+              </div>
+         </div>
+
+        <div class="col-md-12">
+            <div class="accordion" id="accordionOccup">
+              <div class="card">
+                <div class="card-header nated" id="headingOccup">
+                  <h2 class="mb-0">
+                    <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOccup" aria-expanded="true" aria-controls="collapseOccup">
+                      Nated Studies
+                    </button>
+                  </h2>
+                </div>
+
+                <div id="collapseOccup" class="collapse show" aria-labelledby="headingOccup" data-parent="#accordionOccup">
+                  <div class="card-body">
+                      <table class="table table-striped">
+  <thead class="thead-dark">
+    <tr>
+   
+      <th scope="col">Course</th>
+      <th scope="col">Duration</th>
+      <th scope="col">Monthly Fee</th>
+      <th scope="col">Exam Fee</th>
+      <th scope="col">Registration</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+     
+      <td>Electrical Engineering</td>
+      <td>3 Months</td>
+      <td>R350/Subject</td>
+      <td>R300</td>
+      <td>R 2 700.00</td>
+      
+    </tr>
+    <tr>
+     
+     <td>Motor Mechanic</td>
+      <td>3 Months</td>
+      <td>R350/Subject</td>
+      <td>R300</td>
+      <td>R 2 700.00</td>
+    </tr>
+    <tr>
+     
+      
+  <td>Diesel Mechanic</td>
+      <td>3 Months</td>
+      <td>R350/Subject</td>
+      <td>R300</td>
+      <td>R 2 700.00</td>
+    </tr>
+
+     <tr>
+     
+   
+     <td>Fitter & Turner</td>
+      <td>3 Months</td>
+      <td>R350/Subject</td>
+      <td>R300</td>
+      <td>R 2 700.00</td>
+    </tr>
+
+     <tr>
+     
+    
+     <td>Boiler Maker</td>
+      <td>3 Months</td>
+      <td>R350/Subject</td>
+      <td>R300</td>
+      <td>R 2 700.00</td>
+    </tr>
+
+  </tbody>
+</table>
+                  </div>
+                </div>
+              </div>
+              </div>
+         </div>
+                <div class="col-md-12">
+                    <div class="accordion" id="accordionExample">
+                      <div class="card">
+                        <div class="card-header nated" id="headingOne">
+                          <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                              Non-Occupational
+                            </button>
+                          </h2>
+                        </div>
+
+                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                          <div class="card-body">
+                              <table class="table table-striped">
+  <thead class="thead-dark">
+    <tr>
+     <th scope="col">Trade</th>
+      <th scope="col">Level</th>
+      <th scope="col">Duration(Months)</th>
+      <th scope="col">Monthly Fee</th>
+      <th scope="col">Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Office Administrator</td>
+      <td>5</td>
+      <td>36</td>
+      <td>R1500</td>
+      <td>R54000</td>
+    </tr>
+    <tr>
+     <td>Bookkeeper</td>
+      <td>5</td>
+      <td>24</td>
+      <td>R1500</td>
+      <td>R54000</td>
+    </tr>
+    <tr>
+      <td>Pest Management Officer</td>
+      <td>5</td>
+      <td>24</td>
+      <td>R1500</td>
+      <td>R54000</td>
+    </tr>
+
+     <tr>
+      <td>OHS Officer</td>
+      <td>5</td>
+      <td>24</td>
+      <td>R1500</td>
+      <td>R54000</td>
+    </tr>
+
+     <tr>
+      <td>Computer Technician</td>
+      <td>5</td>
+      <td>24</td>
+      <td>R1500</td>
+      <td>R54000</td>
+    </tr>
+
+     <tr>
+      <td>Supply Chain Officer</td>
+      <td>5</td>
+      <td>24</td>
+      <td>R1500</td>
+      <td>R54000</td>
+    </tr>
+
+    <tr>
+      <td>Project Manager</td>
+      <td>5</td>
+      <td>24</td>
+      <td>R1500</td>
+      <td>R54000</td>
+    </tr>
+  </tbody>
+</table>
+                          </div>
+                           </div>
+
+                         </div>
+                       </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+<div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+<iframe src="https://secure.na3.adobesign.com/public/esignWidget?wid=CBFCIBAA3AAABLblqZhD68WIa2wZ2Gty0u8OIwAvpEBqLnW9rVIN5YVByjVZZ0e5VdhRgAXs26elgrLSUlos*&hosted=false" width="100%" height="100%" frameborder="0" style="border: 0; overflow: hidden; min-height: 500px; min-width: 600px;"></iframe>
+</div>
+</div>
+<br />
+
+</div>
+
+@section Scripts {
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js" integrity="sha512-2ImtlRlf2VVmiGZsjm9bEyhjGW4dU7B6TNwh/hx/iSByxNENtj3WVE6o/9Lj4TJeVXPi4bnOIMXFIJJAeufa0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" integrity="sha512-nMNlpuaDPrqlEls3IX/Q56H36qvBASwb3ipuo3MxeWbsQB1881ox0cRv7UPTgBlriqoynt35KjEwgGUeUXIPnw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    } 
+  });
+}
+$("#Usertitle").select2({
+    theme: "classic",
+});
+
+</script>
+}
+  
+
+</html>
+
+<br /><br />

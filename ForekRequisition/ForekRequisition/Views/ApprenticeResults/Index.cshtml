@@ -1,0 +1,146 @@
+﻿@model IEnumerable<ForekRequisition.Models.ApprenticeResult>
+
+
+@{
+    Layout = null;
+
+    ViewData["Title"] = "Results";
+
+    
+}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" />
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap4.min.css" />
+<script src="https://use.fontawesome.com/65d1ed3b51.js"></script>
+
+<br />
+
+<div class="alert alert-dark mr-5 ml-5" role="alert">
+    <div class="btn-group">
+          <a asp-action="SetApprenticeResults" asp-controller="ApprenticeResults" class="btn btn-outline-danger"><i class="fa fa-plus"> Add New</i></a>
+           <a asp-action="Logout" asp-controller="Auth" class="btn btn-dark"><i class="fa fa-sign-out"> Logout</i></a>
+    </div>
+</div>
+<div class="card shadow mb-4">
+   <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">
+           Candidates who wrote the selection test
+        </h6>
+  </div>
+
+  <div class="card-body">
+
+      <div class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
+          <table class="table thead-dark table-sm apprentices">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+               Surname
+            </th>
+            <th>
+                ID
+            </th>
+
+             <th>
+               @Html.DisplayNameFor(model => model.Programme)
+
+                </th>
+
+             <th>
+              District
+             </th>
+
+             <th>
+                 Mark
+             </th>
+              <th>
+                Gender
+             </th>
+
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdNumber)
+            </td>
+              <td>
+                @Html.DisplayFor(modelItem => item.Programme)
+            </td>
+
+             <td>
+                @Html.DisplayFor(modelItem => item.MunicipalDistrict)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PercentageObtained)%
+            </td>
+
+             <td>
+                @Html.DisplayFor(modelItem => item.Gender) 
+            </td>
+            
+            <td>
+  
+                <div class="btn-group">
+                <a asp-action="ApprenticeEdit" asp-route-id="@item.Id"> Open</a> 
+                </div>
+
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap4.min.js"></script>
+
+  
+      </div>
+
+  </div>
+</div>
+
+<script>
+    $(document).ready(function(){
+
+        $('.apprentices').DataTable({
+
+            initComplete: function(){
+
+                this.api().columns([3,4,6]).every(function (){
+
+                    var column = this;
+                    var select = $('<select><option value=""></option></select>')
+                    .appendTo($(column.header()).empty())
+                    .on('change', function () {
+                        var val = $.fn.dataTable.util.escapeRegex(
+                            $(this).val()
+                        );
+
+                        column.search(val ? '^' + val + '$' : '', true, false)
+                        .draw();
+                    });
+
+                    column.data().unique().sort().each(function (d,j){
+
+                        select.append('<option value="'+d+'">' + d + '</option>')
+                    });
+                });
+            }
+
+        });
+
+    });
+</script>
+

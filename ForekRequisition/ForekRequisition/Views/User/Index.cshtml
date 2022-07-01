@@ -1,0 +1,116 @@
+﻿@model IEnumerable<ForekRequisition.Models.User>
+
+@{
+    Layout = null;
+
+    ViewData["Title"] = "Users";
+
+    
+}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" />
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap4.min.css" />
+<script src="https://use.fontawesome.com/65d1ed3b51.js"></script>
+
+<br />
+
+<div class="alert alert-dark mr-5 ml-5" role="alert">
+    <div class="btn-group">
+          <a asp-action="" class="btn btn-outline-danger"><i class="fa fa-close"> Close</i></a>
+           <a asp-action="" class="btn btn-dark"><i class="fa fa-sign-out"> Logout</i></a>
+    </div>
+</div>
+<div class="card shadow mb-4">
+   <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">
+            List of All Registered Users
+        </h6>
+  </div>
+
+  <div class="card-body">
+
+      <div class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
+          <table class="table thead-dark table-sm users">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+
+             <th>
+               @Html.DisplayNameFor(model => model.LastLoginDate)
+
+                </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.IsActive)
+             </th>
+
+             <th>
+                 Role
+             </th>
+
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+              <td>
+                @Html.DisplayFor(modelItem => item.LastLoginDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsActive)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Role)
+            </td>
+            
+            <td>
+@*              |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>*@
+                <div class="btn-group">
+                <a asp-action="ModifyUserData" asp-controller="Education" class="btn btn-dark btn-sm" asp-route-id="@item.Id"> <i class="fa fa-refresh"></i> Apply</a> 
+                <li class="btn btn-outline-dark btn-sm"><a href="@Url.Action("ModifyUserDetails", "User", new { id =item.Id})"><i class="fa fa-user"></i> Modify</a></li>
+                </div>
+
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap4.min.js"></script>
+
+  
+      </div>
+
+  </div>
+</div>
+
+
+<script>
+    $(document).ready(function(){
+
+        $('.users').DataTable();
+
+    });
+</script>
+

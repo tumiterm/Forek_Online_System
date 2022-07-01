@@ -1,0 +1,248 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = ForekRequisition
+build_property.RootNamespace = ForekRequisition
+build_property.ProjectDir = C:\Users\Fortunate\Desktop\Forek Systems\ForekRequisition\ForekRequisition\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\Fortunate\Desktop\Forek Systems\ForekRequisition\ForekRequisition
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/Fortunate/Desktop/Forek Systems/ForekRequisition/ForekRequisition/Pages/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZhbGlkYXRpb25TY3JpcHRzUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fortunate/Desktop/Forek Systems/ForekRequisition/ForekRequisition/Views/ApplicantOffer/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwbGljYW50T2ZmZXJcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fortunate/Desktop/Forek Systems/ForekRequisition/ForekRequisition/Views/ApplicantOffer/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwbGljYW50T2ZmZXJcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fortunate/Desktop/Forek Systems/ForekRequisition/ForekRequisition/Views/ApplicantOffer/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwbGljYW50T2ZmZXJcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fortunate/Desktop/Forek Systems/ForekRequisition/ForekRequisition/Views/ApplicantOffer/Notification.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwbGljYW50T2ZmZXJcTm90aWZpY2F0aW9uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fortunate/Desktop/Forek Systems/ForekRequisition/ForekRequisition/Views/ApplicantOffer/OnModifyOffer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwbGljYW50T2ZmZXJcT25Nb2RpZnlPZmZlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fortunate/Desktop/Forek Systems/ForekRequisition/ForekRequisition/Views/ApplicantOffer/OnSignOffer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwbGljYW50T2ZmZXJcT25TaWduT2ZmZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fortunate/Desktop/Forek Systems/ForekRequisition/ForekRequisition/Views/ApplicantStatus/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwbGljYW50U3RhdHVzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fortunate/Desktop/Forek Systems/ForekRequisition/ForekRequisition/Views/ApplicantStatus/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwbGljYW50U3RhdHVzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fortunate/Desktop/Forek Systems/ForekRequisition/ForekRequisition/Views/ApplicantStatus/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwbGljYW50U3RhdHVzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fortunate/Desktop/Forek Systems/ForekRequisition/ForekRequisition/Views/ApplicantStatus/ModifyApplicantStatus.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwbGljYW50U3RhdHVzXE1vZGlmeUFwcGxpY2FudFN0YXR1cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fortunate/Desktop/Forek Systems/ForekRequisition/ForekRequisition/Views/ApplicantStatus/SetApplicantStatus.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwbGljYW50U3RhdHVzXFNldEFwcGxpY2FudFN0YXR1cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fortunate/Desktop/Forek Systems/ForekRequisition/ForekRequisition/Views/Applicant/ApplicantRegister.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwbGljYW50XEFwcGxpY2FudFJlZ2lzdGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fortunate/Desktop/Forek Systems/ForekRequisition/ForekRequisition/Views/Applicant/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwbGljYW50XERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fortunate/Desktop/Forek Systems/ForekRequisition/ForekRequisition/Views/Applicant/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwbGljYW50XERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fortunate/Desktop/Forek Systems/ForekRequisition/ForekRequisition/Views/Applicant/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwbGljYW50XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fortunate/Desktop/Forek Systems/ForekRequisition/ForekRequisition/Views/Applicant/ModifyApplicant.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwbGljYW50XE1vZGlmeUFwcGxpY2FudC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fortunate/Desktop/Forek Systems/ForekRequisition/ForekRequisition/Views/Applicant/OnGetApplicants.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwbGljYW50XE9uR2V0QXBwbGljYW50cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fortunate/Desktop/Forek Systems/ForekRequisition/ForekRequisition/Views/Applicant/SearchApplicant.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwbGljYW50XFNlYXJjaEFwcGxpY2FudC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fortunate/Desktop/Forek Systems/ForekRequisition/ForekRequisition/Views/Applicant/UpdateApplicantDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwbGljYW50XFVwZGF0ZUFwcGxpY2FudERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fortunate/Desktop/Forek Systems/ForekRequisition/ForekRequisition/Views/Applicant/UserNotFound.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwbGljYW50XFVzZXJOb3RGb3VuZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fortunate/Desktop/Forek Systems/ForekRequisition/ForekRequisition/Views/ApprenticeResults/ApprenticeEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwcmVudGljZVJlc3VsdHNcQXBwcmVudGljZUVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fortunate/Desktop/Forek Systems/ForekRequisition/ForekRequisition/Views/ApprenticeResults/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwcmVudGljZVJlc3VsdHNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fortunate/Desktop/Forek Systems/ForekRequisition/ForekRequisition/Views/ApprenticeResults/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwcmVudGljZVJlc3VsdHNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fortunate/Desktop/Forek Systems/ForekRequisition/ForekRequisition/Views/ApprenticeResults/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwcmVudGljZVJlc3VsdHNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fortunate/Desktop/Forek Systems/ForekRequisition/ForekRequisition/Views/ApprenticeResults/OnGetApplicantResponse.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwcmVudGljZVJlc3VsdHNcT25HZXRBcHBsaWNhbnRSZXNwb25zZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fortunate/Desktop/Forek Systems/ForekRequisition/ForekRequisition/Views/ApprenticeResults/OnNotComplete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwcmVudGljZVJlc3VsdHNcT25Ob3RDb21wbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fortunate/Desktop/Forek Systems/ForekRequisition/ForekRequisition/Views/ApprenticeResults/ResultsSearch.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwcmVudGljZVJlc3VsdHNcUmVzdWx0c1NlYXJjaC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fortunate/Desktop/Forek Systems/ForekRequisition/ForekRequisition/Views/ApprenticeResults/SetApprenticeResults.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwcmVudGljZVJlc3VsdHNcU2V0QXBwcmVudGljZVJlc3VsdHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fortunate/Desktop/Forek Systems/ForekRequisition/ForekRequisition/Views/Auth/OnSignIn.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxPblNpZ25Jbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fortunate/Desktop/Forek Systems/ForekRequisition/ForekRequisition/Views/Auth/UserSignUp.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxVc2VyU2lnblVwLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fortunate/Desktop/Forek Systems/ForekRequisition/ForekRequisition/Views/Education/AddEducationDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWR1Y2F0aW9uXEFkZEVkdWNhdGlvbkRldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fortunate/Desktop/Forek Systems/ForekRequisition/ForekRequisition/Views/Education/ApplicantDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWR1Y2F0aW9uXEFwcGxpY2FudERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fortunate/Desktop/Forek Systems/ForekRequisition/ForekRequisition/Views/Education/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWR1Y2F0aW9uXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fortunate/Desktop/Forek Systems/ForekRequisition/ForekRequisition/Views/Education/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWR1Y2F0aW9uXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fortunate/Desktop/Forek Systems/ForekRequisition/ForekRequisition/Views/Education/IncompleteData.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWR1Y2F0aW9uXEluY29tcGxldGVEYXRhLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fortunate/Desktop/Forek Systems/ForekRequisition/ForekRequisition/Views/Education/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWR1Y2F0aW9uXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fortunate/Desktop/Forek Systems/ForekRequisition/ForekRequisition/Views/Education/ModifyUserData.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWR1Y2F0aW9uXE1vZGlmeVVzZXJEYXRhLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fortunate/Desktop/Forek Systems/ForekRequisition/ForekRequisition/Views/Education/Success.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWR1Y2F0aW9uXFN1Y2Nlc3MuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fortunate/Desktop/Forek Systems/ForekRequisition/ForekRequisition/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fortunate/Desktop/Forek Systems/ForekRequisition/ForekRequisition/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fortunate/Desktop/Forek Systems/ForekRequisition/ForekRequisition/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fortunate/Desktop/Forek Systems/ForekRequisition/ForekRequisition/Views/Shared/_MenuItem.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9NZW51SXRlbS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fortunate/Desktop/Forek Systems/ForekRequisition/ForekRequisition/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fortunate/Desktop/Forek Systems/ForekRequisition/ForekRequisition/Views/Student/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fortunate/Desktop/Forek Systems/ForekRequisition/ForekRequisition/Views/Student/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fortunate/Desktop/Forek Systems/ForekRequisition/ForekRequisition/Views/Student/OnGetRegisteredStudents.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxPbkdldFJlZ2lzdGVyZWRTdHVkZW50cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fortunate/Desktop/Forek Systems/ForekRequisition/ForekRequisition/Views/Student/OnGetResponse.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxPbkdldFJlc3BvbnNlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fortunate/Desktop/Forek Systems/ForekRequisition/ForekRequisition/Views/Student/OnModifyStudent.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxPbk1vZGlmeVN0dWRlbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fortunate/Desktop/Forek Systems/ForekRequisition/ForekRequisition/Views/Student/OnRegisterStudent.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxPblJlZ2lzdGVyU3R1ZGVudC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fortunate/Desktop/Forek Systems/ForekRequisition/ForekRequisition/Views/User/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fortunate/Desktop/Forek Systems/ForekRequisition/ForekRequisition/Views/User/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fortunate/Desktop/Forek Systems/ForekRequisition/ForekRequisition/Views/User/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fortunate/Desktop/Forek Systems/ForekRequisition/ForekRequisition/Views/User/ModifyUserDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxNb2RpZnlVc2VyRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fortunate/Desktop/Forek Systems/ForekRequisition/ForekRequisition/Views/User/RegisterUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxSZWdpc3RlclVzZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fortunate/Desktop/Forek Systems/ForekRequisition/ForekRequisition/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fortunate/Desktop/Forek Systems/ForekRequisition/ForekRequisition/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Fortunate/Desktop/Forek Systems/ForekRequisition/ForekRequisition/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-mjnt57h58r

@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "restored": true,
+      "restoreTime": "2022-03-02T14:35:12.4001964Z"
+    },
+    "storage1": {
+      "restored": true,
+      "restoreTime": "2022-03-22T14:56:02.7856367Z"
+    }
+  },
+  "parameters": {
+    "mssql1.subscriptionId": {
+      "Name": "mssql1.subscriptionId",
+      "Type": "subscription",
+      "Value": "b672336f-6679-4994-97b7-d7076fef0207"
+    },
+    "mssql1.resourceGroupName": {
+      "Name": "mssql1.resourceGroupName",
+      "Type": "resourceGroup",
+      "Value": "ApprenticeApp"
+    }
+  }
+}

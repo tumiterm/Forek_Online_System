@@ -1,0 +1,65 @@
+﻿@model ForekRequisition.Models.ApplicantOffer
+
+@{
+    ViewData["Title"] = "Sign Offer";
+}
+
+<link href="~/css/dashboard.css" rel="stylesheet" />
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" />
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap4.min.css" />
+<script src="https://use.fontawesome.com/65d1ed3b51.js"></script>
+
+
+
+<br />
+<div class="UserInfo">
+    <div class="col-md-12">
+        <div class="card border-left-dark shadow h-100 py-2">
+            <div class="card-body">
+                <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-danger">Confirm Availability</h6>
+                </div>
+
+                <div class="card-body">
+          <form asp-action="OnSignOffer">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group" hidden>
+                <label asp-for="ApplicantId" class="control-label"></label>
+                <input asp-for="ApplicantId" class="form-control" />
+                <span asp-validation-for="ApplicantId" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="HasAcceptedPlumbingOffer" /> @Html.DisplayNameFor(model => model.HasAcceptedPlumbingOffer)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="HasAcceptedWeldingOffer" /> @Html.DisplayNameFor(model => model.HasAcceptedWeldingOffer)
+                </label>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Save</button>
+            </div>
+        </form>
+                </div>
+
+                </div>
+            </div>
+        </div>
+  </div>
+</div>
+<br />
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+ 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <br />
+
+
+
+
+

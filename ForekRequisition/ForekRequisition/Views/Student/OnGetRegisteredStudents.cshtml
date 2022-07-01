@@ -1,0 +1,63 @@
+﻿@model IEnumerable<ForekRequisition.Models.Student>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Surname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FullNames)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IDNumber)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Course)
+            </th>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.HasFunding)
+            </th>
+           
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Surname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullNames)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IDNumber)
+            </td>
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.Course)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.HasFunding)
+            </td>
+            
+            <td>
+                <a asp-action="OnModifyStudent" asp-route-id="@item.Id"> Open</a> |
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "secretStore": null,
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/apprenticeserver/databases/apprentice_db",
+      "type": "mssql.azure",
+      "connectionId": "ConnectionStrings:DefaultConnection"
+    },
+    "storage1": {
+      "ignored": "true",
+      "suggestion": "true",
+      "type": "storage",
+      "connectionId": ""
+    }
+  }
+}

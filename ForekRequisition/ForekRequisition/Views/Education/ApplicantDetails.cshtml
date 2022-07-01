@@ -1,0 +1,258 @@
+﻿@model ForekRequisition.Models.Education
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Apprentice</title>
+</head>
+
+
+<br />
+<div class="card shadow mb-4">
+   <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Apprentice Education Details</h6>
+  </div>
+<body>
+
+<div class="card-body">
+    <hr class="mr-2" />
+    <dl class="row">
+        <dt class = "col-sm-6">
+            @Html.DisplayNameFor(model => model.NameofHSchool)
+        
+        <dd class = "col-sm-6">
+            @Html.DisplayFor(model => model.NameofHSchool)
+        </dd>
+        <hr class="mr-25" style="width:90%" />
+        <dt class = "col-sm-6">
+            @Html.DisplayNameFor(model => model.Town)
+        </dt>
+       
+        <dd class = "col-sm-6">
+            @Html.DisplayFor(model => model.Town)
+        </dd>
+        <hr class="mr-25" style="width:90%"/>
+        <dt class = "col-sm-6">
+            @Html.DisplayNameFor(model => model.Municipality)
+        </dt>
+        
+        <dd class = "col-sm-6">
+            @Html.DisplayFor(model => model.Municipality)
+        </dd>
+        <hr class="mr-25" style="width:90%"/>
+        <dt class = "col-sm-6">
+            @Html.DisplayNameFor(model => model.From)
+        </dt>
+       
+        <dd class = "col-sm-6">
+            @Html.DisplayFor(model => model.From)
+        </dd>
+        <hr class="mr-2" style="width:90%"/>
+        <dt class = "col-sm-6">
+            @Html.DisplayNameFor(model => model.Till)
+        </dt>
+     
+        <dd class = "col-sm-6">
+            @Html.DisplayFor(model => model.Till)
+        </dd>
+  
+     
+        <hr style="width:90%"/>
+        <dt class = "col-sm-6">
+            @Html.DisplayNameFor(model => model.IdentityPDF)
+        </dt>
+        
+        <dd class = "col-sm-6">
+        <li class="btn btn-outline-success"><a href="@Url.Action("IDDownload", "Education",new {IDDoc = Model.IdentityPDF})"><i class="fa fa-download"></i> Download</a></li>
+        </dd>
+        <hr style="width:90%" />
+        <dt class = "col-sm-6">
+            @Html.DisplayNameFor(model => model.ApprenticeCV)
+        </dt>
+        
+        <dd class = "col-sm-6">
+        <li class="btn btn-outline-success"><a href="@Url.Action("CVDownload", "Education",new {CVDoc = Model.ApprenticeCV})"><i class="fa fa-download"></i> Download</a></li>
+        </dd>
+        <hr style="width:90%"/>
+        <dt class = "col-sm-6">
+            @Html.DisplayNameFor(model => model.MatricResults)
+        </dt>
+        
+        <dd class = "col-sm-6">
+        <li class="btn btn-outline-success"><a href="@Url.Action("MatricDownload", "Education",new {filename = Model.MatricResults})"><i class="fa fa-download"></i> Download</a></li>
+        </dd>
+        <hr style="width:90%" />
+        <dt class = "col-sm-6">
+            @Html.DisplayNameFor(model => model.BankingDocs)
+        </dt>
+        
+        <dd class = "col-sm-6">
+        <li class="btn btn-outline-success"><a href="@Url.Action("BankFileDownload", "Education",new {bankDoc = Model.BankingDocs})"><i class="fa fa-download"></i> Download</a></li>
+        </dd>
+        <hr style="width:90%"/>
+        <dt class = "col-sm-6">
+            @Html.DisplayNameFor(model => model.ProofRes)
+        </dt>
+       
+        <dd class = "col-sm-6">
+        <li class="btn btn-outline-success"><a href="@Url.Action("ResidenceDownload", "Education", new { residencDoc =Model.ProofRes})"><i class="fa fa-download"></i> Download</a></li>
+        </dd>
+        <hr style="width:90%"/>
+        <dt class = "col-sm-6">
+            @Html.DisplayNameFor(model => model.AffidavitInSupport)
+        </dt>
+        
+        <dd class = "col-sm-6">
+        <li class="btn btn-outline-success"><a href="@Url.Action("AffidavitFormDownload", "Education", new { affidavit =Model.AffidavitInSupport})"><i class="fa fa-download"></i> Download</a></li>
+        </dd>
+
+
+         <hr style="width:90%"/>
+        <dt class = "col-sm-6">
+            @Html.DisplayNameFor(model => model.MedicalCert)
+        </dt>
+        
+        <dd class = "col-sm-6">
+        <li class="btn btn-outline-success"><a href="@Url.Action("MedicalFormDownload", "Education", new { medcert =Model.MedicalCert})"><i class="fa fa-download"></i> Download</a></li>
+        </dd>
+
+        <hr style="width:90%"/>
+        <dt class = "col-sm-6">
+            @Html.DisplayNameFor(model => model.HostEmpNot)
+        </dt>
+       
+        <dd class = "col-sm-6">
+        <li class="btn btn-outline-success"><a href="@Url.Action("HostFormDownload", "Education", new { host =Model.HostEmpNot})"><i class="fa fa-download"></i> Download</a></li>
+        </dd>
+        <hr style="width:90%"/>
+        <dt class = "col-sm-6">
+            @Html.DisplayNameFor(model => model.GradePassed)
+        </dt>
+       
+        <dd class = "col-sm-6">
+            @Html.DisplayFor(model => model.GradePassed)
+        </dd>
+        <hr style="width:90%"/>
+        <dt class = "col-sm-6">
+            @Html.DisplayNameFor(model => model.SubjectOne)
+        </dt>
+      
+        <dd class = "col-sm-6">
+            @Html.DisplayFor(model => model.SubjectOne)
+        </dd>
+        <hr style="width:90%"/>
+
+        <dt class = "col-sm-6">
+            @Html.DisplayNameFor(model => model.MathSubject)
+        </dt>
+      
+        <dd class = "col-sm-6">
+            @Html.DisplayFor(model => model.MathSubject)
+        </dd>
+        <hr style="width:90%"/>
+
+          <dt class = "col-sm-6">
+            @Html.DisplayNameFor(model => model.ScienceSubject)
+        </dt>
+      
+        <dd class = "col-sm-6">
+            @Html.DisplayFor(model => model.ScienceSubject)
+        </dd>
+        <hr style="width:90%"/>
+   
+        <dt class = "col-sm-6">
+            @Html.DisplayNameFor(model => model.QualificationName)
+        </dt>
+     
+        <dd class = "col-sm-6">
+            @Html.DisplayFor(model => model.QualificationName)
+        </dd>
+        <hr style="width:90%"/>
+        <dt class = "col-sm-6">
+            @Html.DisplayNameFor(model => model.QualificationType)
+        </dt>
+      
+        <dd class = "col-sm-6">
+            @Html.DisplayFor(model => model.QualificationType)
+        </dd>
+        <hr style="width:90%"/>
+        <dt class = "col-sm-6">
+            @Html.DisplayNameFor(model => model.QualificationLevel)
+        </dt>
+      
+        <dd class = "col-sm-6">
+            @Html.DisplayFor(model => model.QualificationLevel)
+        </dd>
+        <hr style="width:90%"/>
+        <dt class = "col-sm-6">
+            @Html.DisplayNameFor(model => model.HasPassedSubjects)
+        </dt>
+        
+        <dd class = "col-sm-6">
+            @Html.DisplayFor(model => model.HasPassedSubjects)
+        </dd>
+        <hr style="width:90%"/>
+        <dt class = "col-sm-6">
+            @Html.DisplayNameFor(model => model.IsFrom)
+        </dt>
+       
+        <dd class = "col-sm-6">
+            @Html.DisplayFor(model => model.IsFrom)
+        </dd>
+        <hr style="width:90%"/>
+        <dt class = "col-sm-6">
+            @Html.DisplayNameFor(model => model.FETName)
+        </dt>
+        
+        <dd class = "col-sm-6">
+            @Html.DisplayFor(model => model.FETName)
+        </dd>
+        <hr style="width:90%"/>
+        <dt class = "col-sm-6">
+            @Html.DisplayNameFor(model => model.IsTill)
+        </dt>
+        
+        <dd class = "col-sm-6">
+            @Html.DisplayFor(model => model.IsTill)
+        </dd>
+        <hr style="width:90%"/>
+
+        <dt class = "col-sm-6">
+            @Html.DisplayNameFor(model => model.CreatedOn)
+        </dt>
+        
+        <dd class = "col-sm-6">
+            @Html.DisplayFor(model => model.CreatedOn)
+        </dd>
+        <hr style="width:90%"/>
+       
+        <dt class = "col-sm-6">
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </dt>
+       
+        <dd class = "col-sm-6">
+            @Html.DisplayFor(model => model.CreatedBy)
+        </dd>
+        <hr style="width:90%"/>
+        <dt class = "col-sm-6">
+            @Html.DisplayNameFor(model => model.UpdatedBy)
+        </dt>
+        <dd class = "col-sm-6">
+            @Html.DisplayFor(model => model.UpdatedBy)
+        </dd>
+        
+    </dl>
+
+    <div>
+    <a asp-action="Index" class="btn btn-dark"> Back</a>
+</div>
+</div>
+
+</body>
+</div>
+
+
+</html>

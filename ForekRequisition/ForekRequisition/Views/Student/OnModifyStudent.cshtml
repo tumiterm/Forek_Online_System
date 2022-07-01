@@ -1,0 +1,357 @@
+﻿@model ForekRequisition.Models.Student
+@using ApprenticeApplications.Models.Enums
+
+@{
+    ViewData["Title"] = "Student";
+}
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+.collapsible {
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 47%, rgba(0,212,255,1) 100%);
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.active, .collapsible:hover {
+  background-color: darkblue;
+}
+
+.collapsible:after {
+  content: '\002B';
+  color: white;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2212";
+}
+
+.content {
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
+
+.cont{
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: #f1f1f1;
+}
+
+  .form-control,.Usertitle
+    {
+     border-color: #000000;
+
+    }
+</style>
+
+</head>
+
+<br />
+
+<form asp-action="OnRegisterStudent" enctype="multipart/form-data">
+<body>
+ <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+  <div class="alert alert-primary" role="alert">
+    <div class="row">
+      
+        <div class="form-group col-md-4">
+             <label asp-for="Course" class="control-label"></label>
+                    <select asp-for="Course" class="form-control" id="title" asp-items="Html.GetEnumSelectList<eCourse>()">
+                       <option selected="selected" value="">Select Course</option>
+                    </select> 
+                 <span asp-validation-for="Course" class="text-danger"></span>
+        </div>
+
+         <div class="form-group col-md-4">
+                <label asp-for="CourseDescription" class="control-label"></label>
+                <input asp-for="CourseDescription" class="form-control" placeholder="Example: Electrical Engineering" />
+                <span asp-validation-for="CourseDescription" class="text-danger"></span>
+            </div>
+
+        <div class="form-group col-md-4">
+             <label asp-for="StudyMode" class="control-label"></label>
+                    <select asp-for="StudyMode" class="form-control" id="title" asp-items="Html.GetEnumSelectList<eStudyMode>()">
+                       <option selected="selected" value="">Select Study Mode</option>
+                    </select> 
+                 <span asp-validation-for="StudyMode" class="text-danger"></span>
+        </div>
+
+           </div>
+    </div>
+
+   <section>
+   <button type="button" class="collapsible panel-heading"><i class="fa fa-user"></i> 
+       Student Information</button>
+   <div class="content mb-2">
+        <div class="row">
+             <div class="form-group col-md-4">
+                <label asp-for="Title" class="control-label"></label>
+                    <select asp-for="Title" class="form-control" id="Usertitle" asp-items="Html.GetEnumSelectList<eTitle>()">
+                       <option selected="selected" value="">Select Title</option>
+                    </select> 
+                 <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+
+             <div class="form-group col-md-4">
+                <label asp-for="FullNames" class="control-label"></label>
+                <input asp-for="FullNames" class="form-control" />
+                <span asp-validation-for="FullNames" class="text-danger"></span>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label asp-for="Surname" class="control-label"></label>
+                <input asp-for="Surname" class="form-control" />
+                <span asp-validation-for="Surname" class="text-danger"></span>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label asp-for="Cellphone" class="control-label"></label>
+                <input asp-for="Cellphone" class="form-control" />
+                <span asp-validation-for="Cellphone" class="text-danger"></span>
+            </div>
+
+
+             <div class="form-group col-md-4">
+                <label asp-for="AlternativeNum" class="control-label"></label>
+                <input asp-for="AlternativeNum" class="form-control" />
+                <span asp-validation-for="AlternativeNum" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group col-md-4">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+           
+
+            <div class="form-group col-md-4">
+                <label asp-for="Nationality" class="control-label"></label>
+                    <select asp-for="Nationality" class="form-control" id="title" asp-items="Html.GetEnumSelectList<eNationality>()">
+                       <option selected="selected" value="">Select Nationality</option>
+                    </select> 
+                 <span asp-validation-for="Nationality" class="text-danger"></span>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label asp-for="IDNumber" class="control-label"></label>
+                <input asp-for="IDNumber" class="form-control" />
+                <span asp-validation-for="IDNumber" class="text-danger"></span>
+            </div>
+
+             <div class="form-group col-md-4">
+                <label asp-for="RSAID" class="control-label"> Download ID</label>
+                <a class="btn btn-outline-success form-control" href="@Url.Action("RSAIDFileDownload", "Student",new {filename = Model.RSAIDAttach})"><i class="fa fa-download"></i> Download</a></li>
+                <span asp-validation-for="RSAID" class="text-danger"></span>
+            </div>
+</div>
+</section>
+ 
+<section>
+<button type="button" class="collapsible panel-heading"><i class="fa fa-home"></i>
+    Address Information</button>
+<div class="cont mb-2">
+        <div class="form-row">
+
+             <div class="form-group col-md-12">
+                <label asp-for="Address" class="control-label"></label>
+                 @Html.EditorFor(m => m.Address, additionalViewData: new { htmlAttributes = new { @class = "form-control" }})
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+
+
+
+            <div class="form-group col-md-4">
+                <label asp-for="AddressType" class="control-label"></label>
+                    <select asp-for="AddressType" class="form-control" id="title" asp-items="Html.GetEnumSelectList<eAddressType>()">
+                       <option selected="selected" value="">Select Address Type</option>
+                    </select> 
+                 <span asp-validation-for="AddressType" class="text-danger"></span>
+            </div>
+
+             <div class="form-group col-md-4">
+                <label asp-for="AttachProofRes" class="control-label">Download Proof of Residence</label>
+                <a class="btn btn-outline-success form-control" href="@Url.Action("ResidenceFileDownload", "Student",new {filename = Model.ProofOfRes})"><i class="fa fa-download"></i> Download</a></li>
+                <span asp-validation-for="AttachProofRes" class="text-danger"></span>
+            </div> 
+            
+
+            <div class="form-group col-md-4">
+                <label asp-for="Code" class="control-label"></label>
+                <input asp-for="Code" class="form-control" />
+                <span asp-validation-for="Code" class="text-danger"></span>
+            </div> 
+</div>
+</section>
+
+<section>
+<button type="button" class="collapsible panel-heading"><i class="fa fa-female"></i>
+    Parent/Guardian Information</button>
+<div class="cont mb-2">
+        <div class="form-row">
+             <div class="form-group col-md-4">
+                <label asp-for="GuardianName" class="control-label"></label>
+                <input asp-for="GuardianName" class="form-control" />
+                <span asp-validation-for="GuardianName" class="text-danger"></span>
+            </div>
+
+             <div class="form-group col-md-4">
+                <label asp-for="GuardianLastName" class="control-label"></label>
+                <input asp-for="GuardianLastName" class="form-control" />
+                <span asp-validation-for="GuardianLastName" class="text-danger"></span>
+            </div>
+
+           <div class="form-group col-md-4">
+                <label asp-for="Relationship" class="control-label"></label>
+                    <select asp-for="Relationship" class="form-control" id="relationship" asp-items="Html.GetEnumSelectList<eRelationship>()">
+                       <option selected="Relationship" value="">Select Relationship</option>
+                    </select> 
+                 <span asp-validation-for="Relationship" class="text-danger"></span>
+            </div>
+
+             <div class="form-group col-md-4">
+                <label asp-for="GuardianCell" class="control-label"></label>
+                <input asp-for="GuardianCell" class="form-control" />
+                <span asp-validation-for="GuardianCell" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="GuardianTel" class="control-label"></label>
+                <input asp-for="GuardianTel" class="form-control" />
+                <span asp-validation-for="GuardianTel" class="text-danger"></span>
+            </div>
+
+             <div class="form-group col-md-3">
+                <label" class="control-label">ID/Passport</label>
+                <input asp-for="GuardianID" class="form-control" />
+                <span asp-validation-for="GuardianID" class="text-danger"></span>
+            </div>
+
+            <div class="form-group col-md-1">
+                <label asp-for="GuadianId" class="control-label">Download</label>
+                <a class="btn btn-outline-success form-control" href="@Url.Action("GuardianIdFileDownload", "Student",new {filename = Model.GuadianId})"><i class="fa fa-download"></i>Download</a></li>
+            </div>
+        </div>
+      </div>
+</section>
+
+<section>
+<button type="button" class="collapsible panel-heading"><i class="fa fa-building"></i>
+    School Leaving & Employment Details</button>
+<div class="cont mb-2">
+        <div class="form-row">
+             <div class="form-group col-md-4">
+                <label asp-for="GradePassed" class="control-label"></label>
+                    <select asp-for="GradePassed" class="form-control" id="title" asp-items="Html.GetEnumSelectList<eGradePassed>()">
+                       <option selected="selected" value="">Select Highest Grade Passed</option>
+                    </select> 
+                 <span asp-validation-for="GradePassed" class="text-danger"></span>
+            </div>
+
+              <div class="form-group col-md-4">
+                <label asp-for="HighestQual" class="control-label"></label>
+                    <select asp-for="HighestQual" class="form-control" id="qual" asp-items="Html.GetEnumSelectList<eQualifLevel>()">
+                       <option selected="selected" value="">Select Highest Qualification</option>
+                    </select> 
+                 <span asp-validation-for="HighestQual" class="text-danger"></span>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label asp-for="HighestCert" class="control-label"></label>
+                <a class="btn btn-outline-success form-control" href="@Url.Action("HighestQualFileDownload", "Student",new {filename = Model.HighestQualCertAttach})"><i class="fa fa-download"></i> Download</a></li>
+                <span asp-validation-for="HighestCert" class="text-danger"></span>
+            </div> 
+            <div class="form-group col-md-4">
+             <label asp-for="HasFunding" class="control-label"></label>
+                    <select asp-for="HasFunding" class="form-control" id="HasFunding" asp-items="Html.GetEnumSelectList<eFunding>()">
+                       <option selected="selected" value="">Select Option</option>
+                    </select> 
+                 <span asp-validation-for="HasFunding" class="text-danger"></span>
+           </div>
+
+           <div class="form-group col-md-4">
+                <label asp-for="FunderNameSurname" class="control-label"></label>
+                <input asp-for="FunderNameSurname" class="form-control" />
+                <span asp-validation-for="FunderNameSurname" class="text-danger"></span>
+            </div> 
+
+            <div class="form-group col-md-4">
+                <label asp-for="FunderContact" class="control-label"></label>
+                <input asp-for="FunderContact" class="form-control" />
+                <span asp-validation-for="FunderContact" class="text-danger"></span>
+            </div>
+
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsEmployed" /> @Html.DisplayNameFor(model => model.IsEmployed)
+                </label>
+            </div>
+        </div>
+      </div>
+</section>
+
+      </body>  
+
+       <button type="submit" class="btn  btn-success">
+                        <i class="fa fa-save"></i>
+                        Save
+                    </button>
+
+
+            <button type="button" class="btn btn-danger float-right ml-1">
+                     <i class="fa fa-close"></i>
+                        Close
+            </button>
+       
+      </form>
+</div>
+
+@section Scripts {
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js" integrity="sha512-2ImtlRlf2VVmiGZsjm9bEyhjGW4dU7B6TNwh/hx/iSByxNENtj3WVE6o/9Lj4TJeVXPi4bnOIMXFIJJAeufa0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" integrity="sha512-nMNlpuaDPrqlEls3IX/Q56H36qvBASwb3ipuo3MxeWbsQB1881ox0cRv7UPTgBlriqoynt35KjEwgGUeUXIPnw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    } 
+  });
+}
+$("#Usertitle").select2({
+    theme: "classic",
+});
+
+</script>
+}
+  
+
+</html>
+
+<br /><br />

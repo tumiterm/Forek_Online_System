@@ -1,0 +1,457 @@
+﻿@using ApprenticeApplications.Models.Enums
+@model ForekRequisition.Models.Education
+
+<style>
+   .form-control
+    {
+     border-color: #000000;
+
+    }
+</style>
+<link href="~/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+
+@{
+
+    ViewData["Title"] = "Education";
+
+}
+
+<br />
+<div class="container">
+    <div class="row">
+        <section>
+
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+
+                <li role="presentation" class="nav-item">
+                    <a href="#step1" class="nav-link active" data-toggle="tab" aria-controls="step1" role="tab" title="Step 1"><i class="fa fa-school"></i> High School Details</a>
+                </li>
+
+                <li role="presentation" class="nav-item">
+                    <a href="#step2" class="nav-link" data-toggle="tab" aria-controls="step2" role="tab" title="Step 2"><i class="fa fa-graduation-cap"></i> Tertiary Information</a>
+                </li>
+                <li role="presentation" class="nav-item">
+                    <a href="#step3" class="nav-link" data-toggle="tab" aria-controls="step3" role="tab" title="Step 3"><i class="fa fa-paperclip"></i> Attachments</a>
+                </li>
+
+                <li role="presentation" class="nav-item">
+                    <a href="#complete" class="nav-link" data-toggle="tab" aria-controls="complete" role="tab" title="Complete"><i class="fa fa-pen"></i> Declaration</a>
+                </li>
+            </ul>
+
+            <br />
+
+  <div id="accordion">
+    <div class="card">
+        <div class="card-header" id="headingOne" style="color:black">
+            <h5 class="mb-0">
+                <button class="btn btn-link" onclick="$('#collapsed-chevronSpouse').toggleClass('fa-rotate-180')" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    <i class="fa fa-chevron-circle-up" id="collapsed-chevronSpouse"></i>
+                    Applicant: @ViewData["UserName"] @ViewData["UserLastName"]
+                </button>
+            </h5>
+        </div>
+
+        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="card-body">
+
+             <form enctype="multipart/form-data" asp-action="AddEducationDetails">
+                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                   @Html.TextBox("ApplicantId", ViewData["Id"], new { htmlAttributes = new { @class = "form-control", @id = "ApplicantId", @name = "ApplicantId" } })
+                   <div class="tab-content">
+                      <div class="tab-pane active" role="tabpanel" id="step1">  
+                          
+                         <div class="form-row">
+                            <div class="form-group col-md-4">
+                             <label asp-for="NameofHSchool" class="control-label"></label>
+                                 <input asp-for="NameofHSchool" class="form-control" />
+                                <span asp-validation-for="NameofHSchool" class="text-danger"></span>
+                            </div>
+
+                              <div class="form-group col-md-4">
+                                  <label asp-for="GradePassed" class="control-label"></label>
+                                    <select asp-for="GradePassed" asp-items="Html.GetEnumSelectList<eGradePassed>()" class="form-control">
+                                     <option selected="selected" value="">Select Grade</option>
+                                    </select>
+                                    <span asp-validation-for="GradePassed" class="text-danger"></span>
+                                </div>
+
+
+                                <div class="form-group col-md-2">
+                                  <label asp-for="From" class="control-label"></label>
+                                     <input asp-for="From" class="form-control" />
+                                   <span asp-validation-for="From" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group col-md-2">
+                                  <label asp-for="Till" class="control-label"></label>
+                                     <input asp-for="Till" class="form-control" />
+                                   <span asp-validation-for="Till" class="text-danger"></span>
+                                </div>
+
+                                 <hr />
+
+                             
+                               <div class="form-group col-md-6">
+                                  <label asp-for="Municipality" class="control-label"></label>
+                                    <select asp-for="Municipality" asp-items="Html.GetEnumSelectList<eMunicipality>()" class="form-control">
+                                     <option selected="selected" value="">Select Municipality</option>
+                                    </select>
+                                    <span asp-validation-for="Municipality" class="text-danger"></span>
+                                </div>
+
+
+                                <div class="form-group col-md-6">
+                                  <label asp-for="Town" class="control-label"></label>
+                                     <input asp-for="Town" class="form-control" />
+                                   <span asp-validation-for="Town" class="text-danger"></span>
+                                </div>
+                               
+
+                              </div>
+                              <div id="accordion">
+  <div class="card">
+    <div class="card-header" id="headingEighty">
+      <h5 class="mb-0">
+      <button class="btn btn-link" onclick="$('#collapsed-chevronSpouse').toggleClass('fa-rotate-180')" data-toggle="collapse" data-target="#collapseEighty" aria-expanded="true" aria-controls="collapseEighty">
+           <i class="fa fa-chevron-circle-up" id="collapsed-chevronSubj"></i>
+          National Senior Certificate (NSC) Subjects
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapseEighty" class="collapse show" aria-labelledby="headingEighty" data-parent="#accordionEighty">
+      <div class="card-body">
+
+          <div class="form-row">
+
+                               <div class="form-btn-group col-md-4">
+                                  <label asp-for="SubjectOne" class="control-label"></label>
+                                    <select asp-for="SubjectOne" asp-items="Html.GetEnumSelectList<eMathSubj>()" class="form-control">
+                                     <option selected="selected" value="">Select Subject</option>
+                                    </select>
+                                    <span asp-validation-for="SubjectOne" class="text-danger"></span>
+                               </div>
+
+                                  <div class="form-group col-md-4">
+                                  <label asp-for="MathSubject" class="control-label"></label>
+                                     <input asp-for="MathSubject" type="number" class="form-control" />
+                                   <span asp-validation-for="MathSubject" class="text-danger"></span>
+                                </div>
+
+                                  <div class="form-group col-md-4">
+                                  <label asp-for="ScienceSubject" class="control-label"></label>
+                                     <input asp-for="ScienceSubject" type="number" class="form-control" />
+                                   <span asp-validation-for="ScienceSubject" class="text-danger"></span>
+                                </div>
+
+                              
+                        </div>
+
+      </div>
+    </div>
+  </div>
+  </div>
+
+                          <div class="form-row">
+                          </div>
+                        
+
+                  <div class="alert alert-secondary mt-1" role="alert">
+
+                    <div class="btn-group">
+                      <button type="reset" class="btn btn-warning"><i class="fa fa-undo"></i> Reset</button>
+                      <button type="button" class="btn btn-outline-info next-step" id="n-btn1"><i class="fa fa-arrow-right"></i> Next</button>
+                    </div>
+
+                  </div>
+                  </div>
+
+                   <div class="tab-pane" role="tabpanel" id="step2">
+
+                       <div class="form-row">
+                             <div class="form-group col-md-4">
+                                  <label asp-for="FETName" class="control-label"></label>
+                                     <input asp-for="FETName" class="form-control" />
+                                   <span asp-validation-for="FETName" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group col-md-4">
+                                  <label asp-for="IsFrom" class="control-label"></label>
+                                     <input asp-for="IsFrom" class="form-control" />
+                                   <span asp-validation-for="IsFrom" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group col-md-4">
+                                  <label asp-for="IsTill" class="control-label"></label>
+                                     <input asp-for="IsTill" class="form-control" />
+                                   <span asp-validation-for="IsTill" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group col-md-4">
+                                  <label asp-for="QualificationName" class="control-label"></label>
+                                     <input asp-for="QualificationName" class="form-control" />
+                                   <span asp-validation-for="QualificationName" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group col-md-4">
+                                  <label asp-for="QualificationType" class="control-label"></label>
+                                    <select asp-for="QualificationType" asp-items="Html.GetEnumSelectList<eQualificationType>()" class="form-control">
+                                     <option selected="selected" value="">Select Qualification Type</option>
+                                    </select> 
+                                    <span asp-validation-for="QualificationType" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group col-md-4">
+                                  <label asp-for="QualificationLevel" class="control-label"></label>
+                                    <select asp-for="QualificationLevel" asp-items="Html.GetEnumSelectList<eQualifLevel>()" class="form-control">
+                                     <option selected="selected" value="">Select Qualification Level</option>
+                                    </select> 
+                                    <span asp-validation-for="QualificationLevel" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-btn-group col-md-4">
+                                  <label asp-for="HasPassedSubjects" class="control-label"></label>
+                                    <select asp-for="HasPassedSubjects" asp-items="Html.GetEnumSelectList<ePassedSubj>()" class="form-control">
+                                     <option selected="selected" value="">-- Select --</option>
+                                    </select>
+                                    <span asp-validation-for="HasPassedSubjects" class="text-danger"></span>
+                               </div>   
+                       </div>
+                             
+
+               <div class="alert alert-secondary mt-1" role="alert">
+                  <div class="btn-group">
+                  <button type="button" class="btn btn-outline-warning prev-step" id="p-btn1"><i class="fa fa-backward"></i> Previous</button>
+                  <button type="button" class="btn btn-danger next-step" id="n-btn2"><i class="fa fa-arrow-right"></i> Next</button>
+                  </div>
+               </div>
+              </div> 
+
+                 
+                  <div class="tab-pane" role="tabpanel" id="step3">
+
+                      <div class="form-row">
+                          <div class="form-group col-md-6">
+                                  <label asp-for="HighestQualDoc" class="control-label"></label>
+                                     <input asp-for="HighestQualDoc" type="file" multiple class="form-control" />
+                                   <span asp-validation-for="HighestQualDoc" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                 <label class="control-label"></label>
+                                    <div class="alert alert-info" role="alert">
+                                  Attach here your highest qualification obtained.
+                                </div>
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                  <label asp-for="RSAIDDoc" class="control-label"></label>
+                                     <input asp-for="RSAIDDoc" type="file" required multiple class="form-control" />
+                                   <span asp-validation-for="RSAIDDoc" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                 <label class="control-label"></label>
+
+                                    <div class="alert alert-info" role="alert">
+                                  Attach original Certified copy of your RSA Identity document
+                                </div>
+                                </div>
+
+                                 <div class="form-group col-md-6">
+                                  <label asp-for="CVDocs" class="control-label"></label>
+                                     <input asp-for="CVDocs" type="file" required multiple class="form-control" />
+                                   <span asp-validation-for="CVDocs" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                 <label class="control-label"></label>
+                                    <div class="alert alert-info" role="alert">
+                                  Attach a copy of your updated CV or resume
+                                </div>
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                  <label asp-for="MatricResults" class="control-label"></label>
+                                     <input asp-for="Gr12" type="file" required multiple class="form-control" />
+                                   <span asp-validation-for="MatricResults" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                      <label class="control-label"></label>
+                                    <div class="alert alert-info" role="alert">
+                                  Attach a copy of your certified Matric Results/Statement
+                                </div>
+                                </div>
+
+                                 <div class="form-group col-md-6">
+                                  <label asp-for="BankingDocs" class="control-label"></label>
+                                     <input asp-for="BankDocs" type="file" required multiple class="form-control" />
+                                   <span asp-validation-for="BankingDocs" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                  <label class="control-label"></label>
+                                    <div class="alert alert-info" role="alert">
+                                  Attach proof of banking details stamped by bank
+                                </div>
+                                </div>
+
+                                 <div class="form-group col-md-6">
+                                  <label asp-for="ProofRes" class="control-label"></label>
+                                     <input asp-for="ResidenceDoc" type="file" required multiple class="form-control" />
+                                   <span asp-validation-for="ProofRes" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group col-md-6">
+                               <label class="control-label"></label>
+                                    <div class="alert alert-info" role="alert">
+                                  Attach verifiable proof of residential address
+                                </div>
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                  <label asp-for="AffidavitInSupport" class="control-label"></label>
+                                     <input asp-for="AffidavitFile" type="file" multiple class="form-control" />
+                                   <span asp-validation-for="AffidavitInSupport" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                    <label class="control-label"></label>
+                                    <div class="alert alert-info" role="alert">
+                                  Only attach if address is not in the name of yourself
+                                </div>
+                                </div>
+
+
+                                 <div class="form-group col-md-6">
+                                  <label asp-for="MedCertificate" class="control-label"></label>
+                                     <input asp-for="MedCertificate" type="file" class="form-control" />
+                                   <span asp-validation-for="MedCertificate" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                   <label class="control-label"></label>
+                                    <div class="alert alert-info" role="alert">
+                                     Attach Apprentice Medical Form<strong class="text-danger">*</strong>
+                                </div>
+                                </div>
+
+                                 <div class="form-group col-md-6">
+                                  <label asp-for="HostEmpNot" class="control-label"></label>
+                                     <input asp-for="HostFile" type="file" multiple class="form-control" />
+                                   <span asp-validation-for="HostEmpNot" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                   <label class="control-label"></label>
+                                    <div class="alert alert-info" role="alert">
+                                  Attach only if you have a prospective employer
+                                </div>
+                                </div>
+
+                      </div>
+                                
+                            <div class="alert alert-secondary mt-1" role="alert">
+                               <div class="btn-group">
+                                 <button type="button" class="btn btn-outline-warning prev-step" id="p-btn2"><i class="fa fa-backward"></i> Previous</button>
+                                 <button type="button" class="btn btn-danger next-step" id="n-btn3"><i class="fa fa-arrow-right"></i> Next</button>
+                               </div>
+
+                            </div>
+                   </div>
+
+               <div class="tab-pane" role="tabpanel" id="complete">
+                   <div class="alert alert-danger" role="alert">
+                      I declare that I am aware of the rules of this application
+                      and that I understand them. I declare that any false information
+                      in this application will automatically disqualify me from being part
+                      of any Forek funded learning programme(s).
+                      <br />
+                      <hr />
+                      <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="declaration" value="option1">
+                          <label class="form-check-label" for="declaration">I agree</label>
+                     </div>
+                  </div>
+
+                <div class="form-group">
+                   <button type="submit" disabled id="btnSubmit" value="Submit" class="btn btn-success" ><i class="fa fa-save"></i> Save</button>
+                   <button type="button" id="btnClose" value="Close" class="btn btn-outline-danger" ><i class="fa fa-close"></i> Close</button>
+                </div>
+
+              </div>
+                  <div class="clearfix"></div>
+              </div>
+              </form>
+
+                       </div>
+                      </div>
+                     </div>
+                    </div>
+                    </section>
+                  </div>
+                 </div>
+                  
+              
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+
+<script>
+
+    $('#ApplicantId').hide();
+
+
+                    $("#declaration").on("click", function () {
+                        if (this.checked) {
+                            $('#btnSubmit').prop('disabled',false)
+                      
+                        } else {
+                            $('#btnSubmit').prop('disabled',true)
+
+                        }
+                    });
+
+
+                    $(document).ready(function(){
+                        
+                        $('.custom-file-input').on("change", function(){
+
+                            var fileName = $(this).val().split("\\").pop();
+
+                            $(this).next('.custom-file-label').html(fileName);
+                        });
+
+                    });
+
+$("#n-btn1").click(function () {
+	$('#myTab li:nth-child(2) a').tab('show');
+});
+$("#n-btn2").click(function () {
+	$('#myTab li:nth-child(3) a').tab('show');
+});
+$("#n-btn3").click(function () {
+	$('#myTab li:nth-child(4) a').tab('show');
+});
+
+$("#p-btn1").click(function () {
+	$('#myTab li:nth-child(1) a').tab('show');
+});
+$("#p-btn2").click(function () {
+	$('#myTab li:nth-child(2) a').tab('show');
+});
+
+</script>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
